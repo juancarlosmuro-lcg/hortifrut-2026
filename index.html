@@ -1,0 +1,2209 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Pieza de inteligencia estratégica preparada para Hortifrut México.">
+<title>Hortifrut México · Análisis preparado por London Consulting Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  Tipografía: el design system de LCG especifica Manrope (títulos y cuerpo) + DIN 2014 (cifras y metadata).
+  Los archivos DIN 2014 disponibles en el proyecto son builds demo de Fontspring con cobertura de glifos
+  incompleta y no pueden usarse en producción. --font-numeric queda apuntando a Manrope con
+  font-variant-numeric: tabular-nums. Al licenciar DIN 2014, basta cambiar --font-numeric y cargar la familia.
+-->
+<style>
+:root{
+  --green-900:#073E38; --green-800:#085E54; --green-700:#0A7568; --green-600:#039271;
+  --green-500:#03B585; --green-400:#2FCB9E; --green-300:#7FE0C0; --green-200:#BAF4E9; --green-100:#DFF9F0;
+  --lime:#C9E265;
+  --neutral-0:#FFFEFC; --cream:#F2EEEB; --n100:#E9E3DC; --n200:#DCD4C9; --n300:#C2B8AB;
+  --n400:#9A9086; --n500:#756C63; --n600:#574F49; --n700:#3D3733; --n800:#272320; --n900:#171512;
+  --warn:#C98A1F; --warn-bg:#FBEED9; --err:#C0503F; --info:#2E7FB8;
+  --font-sans:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --font-numeric:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --maxw:1180px;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--cream);color:var(--n800);
+  font-family:var(--font-sans);font-size:16.5px;line-height:1.55;
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+p{margin:0}
+a{color:var(--green-700);text-underline-offset:2px}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2.5px solid var(--green-500);outline-offset:3px;border-radius:3px}
+img{max-width:100%;display:block}
+.num{font-family:var(--font-numeric);font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- HUB ---------- */
+#hub{
+  min-height:100dvh;background:var(--green-900);color:var(--cream);
+  position:relative;overflow:hidden;
+  padding:calc(env(safe-area-inset-top,0px) + 26px) 20px 72px;
+}
+#hub::before,#hub::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+#hub::before{width:760px;height:760px;top:-340px;right:-260px;
+  background:radial-gradient(circle at 35% 35%,rgba(3,181,133,.55),rgba(201,226,101,.20) 45%,transparent 70%)}
+#hub::after{width:680px;height:680px;bottom:-320px;left:-240px;
+  background:radial-gradient(circle at 50% 50%,rgba(186,244,233,.30),rgba(3,181,133,.14) 50%,transparent 72%)}
+.hub-inner{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.hub-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.lockup{width:250px;max-width:52vw;color:var(--cream);line-height:0}
+.lockup svg{width:100%;height:auto}
+.claim{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green-300);margin-top:10px;font-weight:600}
+.prospect-mark{text-align:right}
+.prospect-mark img{width:150px;max-width:38vw;margin-left:auto;opacity:.97}
+.prospect-mark > span{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-300);margin-top:8px;font-weight:600}
+.addressee{margin-top:16px;font-size:13.8px;color:var(--green-200);line-height:1.5}
+.addressee b{color:var(--neutral-0);font-weight:700;font-size:15.5px}
+.addressee .org{color:var(--green-300);font-size:12.4px;text-transform:none;letter-spacing:0;font-weight:500}
+.prospect-mark{max-width:310px}
+.hub-h1{margin-top:44px;font-size:clamp(30px,5.4vw,58px);font-weight:300;max-width:20ch;line-height:1.04;color:var(--neutral-0)}
+.hub-h1 em{font-style:normal;font-weight:700;color:var(--green-300);display:block}
+.hub-lede{margin-top:20px;max-width:64ch;font-size:17px;color:var(--green-100);opacity:.94}
+.priv{display:inline-flex;align-items:center;gap:8px;margin-top:26px;border:1px solid rgba(186,244,233,.35);
+  border-radius:999px;padding:5px 13px;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--green-200)}
+.priv i{width:6px;height:6px;border-radius:50%;background:var(--lime);display:block}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin-top:40px}
+.kpi{background:rgba(255,254,252,.055);border:1px solid rgba(186,244,233,.20);border-radius:14px;padding:18px 18px 15px}
+.kpi .v{font-family:var(--font-numeric);font-size:40px;font-weight:300;line-height:1;color:var(--neutral-0);letter-spacing:-0.03em}
+.kpi .v sup{font-size:.42em;font-weight:700;vertical-align:super;margin-left:2px;letter-spacing:0}
+.kpi .l{margin-top:11px;font-size:13.5px;color:var(--green-100);line-height:1.42}
+.kpi .s{margin-top:10px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-300);font-weight:600;line-height:1.35}
+
+.idx-head{margin-top:56px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  border-top:1px solid rgba(186,244,233,.22);padding-top:22px}
+.idx-head h2{font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-200);font-weight:700}
+.idx-head span{font-size:13px;color:var(--green-300)}
+.grid-idx{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:11px;margin-top:18px}
+.tile{
+  text-align:left;background:rgba(255,254,252,.05);border:1px solid rgba(186,244,233,.18);
+  border-radius:13px;padding:16px 16px 18px;transition:background .18s var(--ease),border-color .18s var(--ease),transform .18s var(--ease);
+  display:flex;flex-direction:column;gap:7px;min-height:118px;color:var(--cream)
+}
+.tile:hover{background:rgba(3,181,133,.16);border-color:var(--green-400);transform:translateY(-2px)}
+.tile .n{font-family:var(--font-numeric);font-size:12px;font-weight:700;color:var(--lime);letter-spacing:.08em}
+.tile .t{font-size:16.5px;font-weight:700;line-height:1.2;color:var(--neutral-0)}
+.tile .d{font-size:12.8px;color:var(--green-200);line-height:1.4;opacity:.92}
+.tile.live .t::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);
+  margin-left:8px;vertical-align:middle;animation:pulse 1.9s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.72)}}
+.tile.cta{
+  grid-column:span 2;background:linear-gradient(115deg,var(--green-700) 0%,var(--green-500) 48%,var(--lime) 135%);
+  border-color:transparent;color:#04302B
+}
+.tile.cta .n{color:#04302B;opacity:.7}
+.tile.cta .t,.tile.cta .d{color:#04302B}
+.tile.cta:hover{transform:translateY(-2px);background:linear-gradient(115deg,var(--green-600) 0%,var(--green-400) 48%,var(--lime) 130%)}
+.hub-foot{margin-top:34px;font-size:12.2px;color:var(--green-300);max-width:92ch;line-height:1.55;
+  border-top:1px solid rgba(186,244,233,.18);padding-top:18px}
+
+/* ---------- SECTION SHELL ---------- */
+.view{display:none}
+.view.on{display:block;animation:fade .26s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}*{transition:none!important}}
+
+.bar{position:sticky;top:0;z-index:40;background:rgba(242,238,235,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--n200);padding-top:env(safe-area-inset-top,0px)}
+.bar-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.bar-btn{background:var(--neutral-0);border:1px solid var(--n200);border-radius:8px;padding:7px 13px;
+  font-size:13px;font-weight:700;color:var(--n700);display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.bar-btn:hover{border-color:var(--green-500);color:var(--green-700)}
+.bar-btn[disabled]{opacity:.32;pointer-events:none}
+.bar-title{flex:1;min-width:0;font-size:13px;color:var(--n500);font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:1px solid var(--n200);padding-left:12px}
+.bar-title b{color:var(--n800);font-weight:800}
+.bar-title .num{color:var(--green-600);margin-right:6px}
+.bar-nav{display:flex;gap:6px}
+.bar-nav .bar-btn{padding:7px 10px}
+@media(max-width:700px){.bar-title{display:none}}
+
+main{max-width:var(--maxw);margin:0 auto;padding:30px 20px 24px}
+.eyebrow{font-family:var(--font-numeric);font-size:11.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--green-600);font-weight:700;display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--n200)}
+h2.sec{font-size:clamp(25px,4vw,38px);font-weight:700;margin-top:14px;max-width:24ch}
+.lede{margin-top:14px;font-size:17.5px;color:var(--n600);max-width:74ch;line-height:1.55}
+.body{margin-top:26px;display:grid;gap:22px}
+p.tx{font-size:16px;color:var(--n700);max-width:76ch;line-height:1.62}
+p.tx + p.tx{margin-top:-6px}
+h3.sub{font-size:19px;font-weight:700;margin-top:6px}
+.small{font-size:13px;color:var(--n500);line-height:1.5}
+.cap{font-size:12.2px;color:var(--n500);line-height:1.5;margin-top:10px}
+.foot{margin-top:46px;border-top:1px solid var(--n200);padding-top:20px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ---------- COMPONENTS ---------- */
+.panel{background:var(--neutral-0);border:1px solid var(--n200);border-radius:14px;padding:22px}
+.panel.dark{background:var(--green-900);border-color:transparent;color:var(--cream)}
+.panel.dark h3,.panel.dark h2{color:var(--neutral-0)}
+.panel.dark p{color:var(--green-100)}
+.panel.mesh{background:linear-gradient(125deg,var(--green-900) 0%,var(--green-700) 42%,var(--green-500) 80%,var(--lime) 140%);color:#fff;border:0}
+.panel.sunken{background:var(--n100);border-color:var(--n200)}
+
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:14px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+
+/* card con pestaña */
+.tab{position:relative;background:var(--neutral-0);border:1px solid var(--n200);border-radius:0 12px 12px 12px;
+  padding:26px 20px 20px;margin-top:26px}
+.tab > .lab{position:absolute;top:-26px;left:-1px;height:26px;display:inline-flex;align-items:center;gap:7px;
+  padding:0 13px;border-radius:9px 9px 0 0;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:800}
+.tab.hecho > .lab{background:var(--green-800);color:var(--green-200)}
+.tab.senal > .lab{background:var(--green-200);color:var(--green-800)}
+.tab.hip > .lab{background:var(--lime);color:#31400F}
+.tab.imp > .lab{background:var(--n200);color:var(--n700)}
+.tab.hecho{border-top-color:var(--green-800)}
+.tab.senal{border-top-color:var(--green-400)}
+.tab.hip{border-top-color:var(--lime)}
+.tab h4{font-size:17px;font-weight:700;line-height:1.28}
+.tab p{margin-top:9px;font-size:14.8px;color:var(--n600);line-height:1.55}
+.tab .src{margin-top:12px;font-size:11.5px;color:var(--n400);line-height:1.45}
+.tab ol.qs{margin:12px 0 12px;padding:0;list-style:none;counter-reset:q;display:grid;gap:9px}
+.tab ol.qs li{counter-increment:q;position:relative;padding-left:32px;font-size:14.6px;color:var(--n700);line-height:1.5}
+.tab ol.qs li::before{content:counter(q,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-family:var(--font-numeric);font-size:11px;font-weight:800;color:var(--green-600);
+  background:var(--green-100);border-radius:5px;padding:2px 6px;letter-spacing:.05em}
+.tab .k{font-family:var(--font-numeric);font-size:11px;font-weight:800;color:var(--green-600);letter-spacing:.1em}
+
+/* cifra grande */
+.big{font-family:var(--font-numeric);font-weight:300;font-size:clamp(46px,8vw,78px);line-height:.92;
+  letter-spacing:-0.045em;color:var(--green-800)}
+.big sup{font-size:.32em;font-weight:700;vertical-align:super;letter-spacing:0;margin-left:3px}
+.big.on-dark{color:var(--neutral-0)}
+
+/* stat tiles */
+.stat{border-radius:13px;padding:18px 17px 15px;display:flex;flex-direction:column;gap:6px;min-height:150px}
+.stat .v{font-family:var(--font-numeric);font-weight:300;font-size:clamp(34px,5.2vw,46px);line-height:1;letter-spacing:-0.04em}
+.stat .v sup{font-size:.36em;font-weight:700;vertical-align:super;margin-left:2px;letter-spacing:0}
+.stat .l{font-size:13.5px;line-height:1.4;font-weight:600;margin-top:4px}
+.stat .s{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-top:auto;padding-top:10px;opacity:.75;line-height:1.35}
+.stat.mint{background:var(--green-200);color:var(--green-900)}
+.stat.cream{background:var(--neutral-0);color:var(--n800);border:1px solid var(--n200)}
+.stat.dark{background:var(--green-800);color:var(--cream)}
+.stat.dark .v{color:#fff}
+.stat.lime{background:var(--lime);color:#31400F}
+
+/* pill bars */
+.pills{display:flex;align-items:flex-end;gap:16px;height:224px;padding:30px 4px 0}
+.pillwrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:9px;height:100%;justify-content:flex-end;min-width:0}
+.pill{width:100%;max-width:62px;border-radius:999px 999px 5px 5px;
+  background:linear-gradient(180deg,var(--green-400),var(--green-700));position:relative}
+.pill.neg{background:linear-gradient(180deg,var(--n300),var(--n400))}
+.pill.hi{background:linear-gradient(180deg,var(--lime),var(--green-500))}
+.pill span{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-family:var(--font-numeric);
+  font-size:13.5px;font-weight:700;color:var(--n700);white-space:nowrap}
+.pilllab{font-size:11.8px;color:var(--n500);text-align:center;line-height:1.3;font-weight:600}
+
+/* table */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--n200);border-radius:12px;background:var(--neutral-0)}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--n100);vertical-align:top;line-height:1.45}
+thead th{background:var(--green-800);color:var(--green-200);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:800;position:sticky;top:0;border-bottom:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.me{background:var(--green-100)}
+tbody tr.me td:first-child{font-weight:800;color:var(--green-800)}
+td.nd{color:var(--n400);font-style:italic}
+.scrollhint{font-size:11.5px;color:var(--n400);margin-top:7px}
+
+/* chain */
+.chain{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--n200);border-radius:12px;overflow:hidden;background:var(--neutral-0)}
+.chain > div{padding:14px 13px;border-right:1px solid var(--n100);min-width:0}
+.chain > div:last-child{border-right:0;background:var(--green-100)}
+.chain .h{font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--green-600);margin-bottom:7px}
+.chain .b{font-size:13.4px;line-height:1.42;color:var(--n700)}
+@media(max-width:760px){.chain{grid-template-columns:1fr}.chain>div{border-right:0;border-bottom:1px solid var(--n100)}}
+
+/* quadrant / bubbles */
+.plot{position:relative;background:var(--neutral-0);border:1px solid var(--n200);border-radius:14px;
+  padding:30px 26px 46px 56px;aspect-ratio:16/11;min-height:330px}
+.plot .axX,.plot .axY{position:absolute;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--n400);font-weight:700}
+.plot .axX{bottom:16px;left:56px;right:26px;display:flex;justify-content:space-between}
+.plot .axY{top:30px;bottom:46px;left:16px;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between}
+.plot .field{position:absolute;inset:30px 26px 46px 56px;border-left:1px solid var(--n200);border-bottom:1px solid var(--n200)}
+.plot .field::before,.plot .field::after{content:"";position:absolute;background:var(--n100)}
+.plot .field::before{left:0;right:0;top:50%;height:1px}
+.plot .field::after{top:0;bottom:0;left:50%;width:1px}
+.bub{position:absolute;transform:translate(-50%,50%);display:flex;align-items:center;justify-content:center;
+  border-radius:50%;font-size:11.5px;font-weight:800;text-align:center;line-height:1.1;padding:4px}
+.bub.a{background:radial-gradient(circle at 32% 30%,var(--green-300),var(--green-600) 72%);color:#fff}
+.bub.b{background:radial-gradient(circle at 32% 30%,var(--lime),var(--green-500) 78%);color:#0d3b2f}
+.bub.c{background:radial-gradient(circle at 32% 30%,var(--green-200),var(--green-400) 76%);color:var(--green-900)}
+.bub.d{background:radial-gradient(circle at 32% 30%,var(--n200),var(--n400) 76%);color:#fff}
+.bub.me{background:radial-gradient(circle at 30% 28%,var(--green-500),var(--green-900) 82%);color:#fff;box-shadow:0 0 0 3px var(--lime)}
+
+/* timeline */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--green-500),var(--green-200))}
+.tl .ev{position:relative;padding:0 0 22px}
+.tl .ev::before{content:"";position:absolute;left:-26px;top:5px;width:14px;height:14px;border-radius:50%;
+  background:var(--cream);border:3px solid var(--green-500)}
+.tl .ev.key::before{background:var(--lime);border-color:var(--green-700)}
+.tl .d{font-family:var(--font-numeric);font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--green-600);font-weight:800}
+.tl .t{font-size:15.5px;font-weight:700;margin-top:3px;line-height:1.3}
+.tl .x{font-size:13.6px;color:var(--n600);margin-top:4px;line-height:1.5}
+.tl .s{font-size:11px;color:var(--n400);margin-top:5px}
+
+/* misc */
+.callout{background:linear-gradient(120deg,var(--green-900),var(--green-700) 65%,var(--green-600) 115%);
+  color:var(--cream);border-radius:14px;padding:22px 22px;position:relative;overflow:hidden}
+.callout::after{content:"";position:absolute;width:280px;height:280px;right:-110px;top:-130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,226,101,.35),transparent 68%);filter:blur(24px)}
+.callout h4{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);font-weight:800}
+.callout p{margin-top:10px;font-size:16.5px;line-height:1.55;position:relative;z-index:2;color:var(--green-100)}
+.callout p b{color:#fff}
+
+.note{border-left:3px solid var(--warn);background:var(--warn-bg);border-radius:0 10px 10px 0;padding:14px 16px;font-size:14px;color:var(--n700);line-height:1.5}
+
+.dots{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;width:132px}
+.dots i{display:block;aspect-ratio:1;border-radius:50%;background:var(--green-500)}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.chip.hecho{background:var(--green-800);color:var(--green-200)}
+.chip.senal{background:var(--green-200);color:var(--green-800)}
+.chip.hip{background:var(--lime);color:#31400F}
+.chip.imp{background:var(--n200);color:var(--n700)}
+
+.srcs{display:grid;gap:9px;font-size:13.2px}
+.srcs > div{display:grid;grid-template-columns:34px 1fr;gap:11px;padding-bottom:9px;border-bottom:1px solid var(--n100)}
+.srcs .id{font-family:var(--font-numeric);font-weight:800;color:var(--green-600);font-size:12px}
+.srcs .m{color:var(--n500);display:block;margin-top:2px;font-size:12px;line-height:1.45}
+.srcs a{word-break:break-word}
+
+/* cases */
+.case{background:var(--neutral-0);border:1px solid var(--n200);border-radius:16px;overflow:hidden}
+.case .top{padding:20px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--n100);background:var(--cream)}
+.case .top img{height:54px;width:auto;object-fit:contain}
+.case .roi{margin-left:auto;text-align:right}
+.case .roi .v{font-family:var(--font-numeric);font-size:46px;font-weight:300;line-height:1;color:var(--green-700);letter-spacing:-0.04em}
+.case .roi .v sup{font-size:.40em;font-weight:700;vertical-align:super;margin-left:2px}
+.case .roi .l{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--n500);font-weight:700;margin-top:4px}
+.case .bd{padding:20px 22px}
+.case ul{margin:12px 0 0;padding-left:0;list-style:none;display:grid;gap:8px}
+.case li{font-size:14.4px;color:var(--n700);line-height:1.45;padding-left:20px;position:relative}
+.case li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:2px;background:var(--green-400)}
+.case .acts{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:9px 15px;font-size:13.5px;
+  font-weight:700;text-decoration:none;border:1px solid var(--n200);background:var(--cream);color:var(--n700)}
+.btn:hover{border-color:var(--green-500);color:var(--green-700)}
+.btn.p{background:var(--green-700);color:#fff;border-color:transparent}
+.btn.p:hover{background:var(--green-800);color:#fff}
+
+.vid{position:relative;border-radius:12px;overflow:hidden;background:#04302B;margin-top:16px}
+.vid video{width:100%;height:auto;display:block}
+.vid .fb{display:none;padding:15px 16px;font-size:13.5px;color:var(--green-100);line-height:1.5}
+
+.modal{position:fixed;inset:0;background:rgba(7,62,56,.86);z-index:90;display:none;
+  align-items:center;justify-content:center;padding:22px}
+.modal.on{display:flex}
+.modal .box{background:var(--neutral-0);border-radius:14px;max-width:820px;width:100%;max-height:88vh;
+  overflow:auto;position:relative;padding:14px}
+.modal .cl{position:sticky;top:0;margin-left:auto;display:block;background:var(--green-800);color:#fff;
+  border:0;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:700}
+
+/* prediag */
+.inp{background:var(--neutral-0);border:1px solid var(--n200);border-radius:12px;padding:17px;display:flex;gap:14px}
+.inp .no{font-family:var(--font-numeric);font-size:26px;font-weight:300;color:var(--green-400);line-height:1;flex:0 0 auto;letter-spacing:-0.03em}
+.inp h4{font-size:15.5px;font-weight:700;line-height:1.25}
+.inp p{margin-top:7px;font-size:13.8px;color:var(--n600);line-height:1.5}
+
+/* hypothesis cards */
+.hyp{background:var(--neutral-0);border:1px solid var(--n200);border-radius:12px;overflow:hidden}
+.hyp .hd{background:var(--green-800);color:#fff;padding:13px 16px;display:flex;gap:11px;align-items:flex-start}
+.hyp .hd .id{font-family:var(--font-numeric);font-size:12px;font-weight:800;color:var(--lime);flex:0 0 auto;padding-top:2px}
+.hyp .hd h4{font-size:15.2px;font-weight:700;line-height:1.3;color:#fff}
+.hyp dl{margin:0;padding:15px 16px;display:grid;gap:11px}
+.hyp dt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-600);font-weight:800}
+.hyp dd{margin:3px 0 0;font-size:13.8px;color:var(--n700);line-height:1.5}
+
+/* scenario cards */
+.scen{background:var(--neutral-0);border:1px solid var(--n200);border-radius:12px;padding:19px;border-top:4px solid}
+.scen.base{border-top-color:var(--green-500)}
+.scen.acc{border-top-color:var(--lime)}
+.scen.pre{border-top-color:var(--warn)}
+.scen h4{font-size:16.5px;font-weight:700}
+.scen .k{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--n400)}
+.scen p{margin-top:9px;font-size:14px;color:var(--n600);line-height:1.5}
+.scen .imp{margin-top:13px;padding-top:12px;border-top:1px solid var(--n100);font-size:13.8px;color:var(--n800);line-height:1.5}
+.scen .imp b{color:var(--green-700)}
+
+/* bifurcation */
+.bif{background:var(--neutral-0);border:1px solid var(--n200);border-radius:12px;padding:18px}
+.bif h4{font-size:16px;font-weight:700}
+.bif .q{font-size:13.6px;color:var(--n500);margin-top:6px;line-height:1.45}
+.bif .opts{display:grid;gap:10px;margin-top:14px}
+.bif .opt{border-radius:9px;padding:13px 14px;font-size:13.6px;line-height:1.5}
+.bif .opt.a{background:var(--green-100);color:var(--green-900)}
+.bif .opt.b{background:var(--n100);color:var(--n700)}
+.bif .opt b{display:block;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;margin-bottom:5px;opacity:.75}
+
+
+/* ---------- consola agéntica ---------- */
+.console{background:var(--green-900);border-radius:18px;overflow:hidden;position:relative;color:var(--cream)}
+.console::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(186,244,233,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(186,244,233,.055) 1px,transparent 1px);
+  background-size:38px 38px;mask-image:radial-gradient(ellipse at 22% 0%,#000 0%,transparent 78%)}
+.console::after{content:"";position:absolute;width:560px;height:560px;right:-220px;bottom:-280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,226,101,.22),rgba(3,181,133,.14) 45%,transparent 72%);filter:blur(60px);pointer-events:none}
+.console-top{position:relative;z-index:2;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:16px 22px;border-bottom:1px solid rgba(186,244,233,.16)}
+.console-top .tag{font-family:var(--font-numeric);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:800;color:var(--green-300)}
+.console-top .live{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:800;color:var(--lime);margin-left:auto}
+.console-top .live i{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulse 1.9s ease-in-out infinite}
+.console-body{position:relative;z-index:2;display:grid;grid-template-columns:286px 1fr;min-height:470px}
+.agent-list{border-right:1px solid rgba(186,244,233,.16);padding:12px;display:flex;flex-direction:column;gap:6px}
+.agent-btn{display:flex;gap:11px;align-items:flex-start;text-align:left;background:transparent;border:1px solid transparent;
+  border-radius:11px;padding:12px 13px;color:var(--green-100);transition:background .16s var(--ease),border-color .16s var(--ease);width:100%}
+.agent-btn:hover{background:rgba(255,254,252,.06)}
+.agent-btn .n{font-family:var(--font-numeric);font-size:11px;font-weight:800;color:var(--green-400);padding-top:3px;flex:0 0 auto}
+.agent-btn .t{font-size:14.6px;font-weight:700;line-height:1.24;color:var(--neutral-0)}
+.agent-btn .c{font-size:11px;color:var(--green-300);margin-top:3px;display:block;letter-spacing:.04em}
+.agent-btn[aria-selected="true"]{background:rgba(3,181,133,.20);border-color:var(--green-400)}
+.agent-btn[aria-selected="true"] .n{color:var(--lime)}
+.agent-detail{padding:22px 24px 24px;display:flex;flex-direction:column}
+.agent-detail h3{font-size:clamp(20px,2.6vw,27px);font-weight:700;color:var(--neutral-0);max-width:22ch}
+.agent-detail .sum{margin-top:10px;font-size:14.6px;color:var(--green-100);max-width:62ch;line-height:1.55}
+.flow{margin-top:22px;display:grid;gap:0}
+.step{display:grid;grid-template-columns:106px 1fr;gap:14px;padding:0 0 16px;position:relative}
+.step::before{content:"";position:absolute;left:12px;top:22px;bottom:-4px;width:2px;background:rgba(186,244,233,.22)}
+.step:last-child::before{display:none}
+.step .k{display:flex;align-items:center;gap:9px}
+.step .k i{width:26px;height:26px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-numeric);font-size:10.5px;font-weight:800;background:rgba(186,244,233,.14);color:var(--green-200);font-style:normal}
+.step .k span{font-size:9.8px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--green-300)}
+.step .v{font-size:14.8px;line-height:1.5;color:var(--cream);padding-top:3px}
+.step.is-agent .k i{background:var(--lime);color:#31400F}
+.step.is-agent .k span{color:var(--lime)}
+.step.is-agent .v{color:#fff;font-weight:600}
+.step.is-result .k i{background:var(--green-500);color:#04302B}
+.step.is-result .k span{color:var(--green-300)}
+.pre{margin-top:auto;padding-top:16px;border-top:1px solid rgba(186,244,233,.18)}
+.pre .lb{font-size:9.8px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--lime)}
+.pre p{margin-top:7px;font-size:13.6px;color:var(--green-100);line-height:1.5;max-width:70ch}
+.anim > *{animation:stepin .34s var(--ease) both}
+.anim > *:nth-child(2){animation-delay:.05s}
+.anim > *:nth-child(3){animation-delay:.1s}
+.anim > *:nth-child(4){animation-delay:.15s}
+.anim > *:nth-child(5){animation-delay:.2s}
+@keyframes stepin{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.anim > *{animation:none}}
+@media(max-width:860px){
+  .console-body{grid-template-columns:1fr;min-height:0}
+  .agent-list{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid rgba(186,244,233,.16);
+    padding:10px;gap:8px;scrollbar-width:thin}
+  .agent-btn{flex:0 0 auto;width:auto;min-width:168px;flex-direction:column;gap:4px}
+  .agent-btn .t{font-size:13.6px}
+  .agent-detail{padding:20px 18px 22px}
+  .step{grid-template-columns:1fr;gap:6px}
+  .step::before{display:none}
+  .step .v{padding-left:35px}
+}
+/* video */
+.vid .fb a{color:var(--lime)}
+.vidlink{margin-top:9px;font-size:12.6px}
+
+/* CTA */
+.cta-wrap{background:linear-gradient(125deg,var(--green-900) 0%,var(--green-700) 40%,var(--green-500) 82%,var(--lime) 145%);
+  border-radius:18px;padding:34px 28px;color:#fff;position:relative;overflow:hidden}
+.cta-wrap h3{font-size:clamp(24px,4vw,34px);font-weight:300;max-width:22ch;color:#fff;line-height:1.12}
+.cta-wrap h3 b{font-weight:700}
+.cta-wrap p{margin-top:16px;max-width:62ch;font-size:16px;color:rgba(255,255,255,.93);line-height:1.6}
+.cta-acts{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
+.cta-acts .btn{background:#fff;color:var(--green-800);border:0;padding:12px 20px;font-size:14.5px}
+.cta-acts .btn.s{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.sig{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.3);font-size:14px;line-height:1.6;color:#fff}
+.sig b{font-size:16.5px}
+.sig a{color:#fff}
+.sig .r{color:rgba(255,255,255,.85)}
+
+@media(max-width:620px){
+  .tile.cta{grid-column:span 1}
+  .grid-idx{grid-template-columns:1fr}
+  main{padding:22px 16px 20px}
+  .bar-in{padding:9px 16px}
+  #hub{padding-left:16px;padding-right:16px}
+  .pills{height:188px;gap:9px}
+  .plot{padding:24px 14px 42px 44px;min-height:290px;aspect-ratio:auto;height:380px}
+  .plot .field{inset:24px 14px 42px 44px}
+  .plot .axX{left:44px;right:14px}
+  .plot .axY{left:10px;top:24px;bottom:42px}
+  .case .roi{margin-left:0;text-align:left;width:100%}
+  .prospect-mark{text-align:left;margin-top:10px}
+  .prospect-mark img{margin-left:0}
+  .pilllab{font-size:9.8px;letter-spacing:-0.01em}
+  .pills{gap:6px}
+  .pill span{font-size:11.5px}
+  .addressee{margin-top:12px}
+}
+/* ---------- HF: componentes propios de esta pieza (namespace hf-) ---------- */
+.hf-net{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:0;
+  background:var(--neutral-0);border:1px solid var(--n200);border-radius:14px;padding:22px 18px}
+.hf-net .nd{text-align:center;padding:4px 8px;min-width:0}
+.hf-net .nd .ic{width:62px;height:62px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-numeric);font-size:12px;font-weight:800;letter-spacing:.08em}
+.hf-net .nd.own .ic{background:var(--green-200);color:var(--green-900)}
+.hf-net .nd.net .ic{background:radial-gradient(circle at 32% 30%,var(--lime),var(--green-500) 80%);color:#13331f;
+  box-shadow:0 0 0 5px rgba(201,226,101,.28)}
+.hf-net .nd.mkt .ic{background:var(--green-800);color:var(--green-200)}
+.hf-net .nd h5{font-size:14.5px;font-weight:800;line-height:1.2;margin:0}
+.hf-net .nd p{margin-top:6px;font-size:12.4px;color:var(--n500);line-height:1.4}
+.hf-net .ar{color:var(--n300);font-size:20px;padding:0 4px;align-self:center}
+@media(max-width:720px){.hf-net{grid-template-columns:1fr}.hf-net .ar{display:none}
+  .hf-net .nd{padding:12px 4px;border-bottom:1px solid var(--n100)}.hf-net .nd:last-child{border-bottom:0}}
+
+.hf-gate{display:grid;gap:10px}
+.hf-gate .g{display:grid;grid-template-columns:120px 1fr;gap:14px;background:var(--neutral-0);
+  border:1px solid var(--n200);border-left:4px solid var(--green-500);border-radius:0 11px 11px 0;padding:14px 16px}
+.hf-gate .g.live{border-left-color:var(--lime);background:linear-gradient(90deg,rgba(201,226,101,.14),var(--neutral-0) 42%)}
+.hf-gate .g.soon{border-left-color:var(--warn)}
+.hf-gate .g .dt{font-family:var(--font-numeric);font-size:12.5px;font-weight:800;color:var(--green-700);letter-spacing:.04em;line-height:1.3}
+.hf-gate .g .dt small{display:block;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--n400);font-weight:700;margin-top:3px}
+.hf-gate .g h5{margin:0;font-size:15.4px;font-weight:700;line-height:1.3}
+.hf-gate .g p{margin-top:6px;font-size:13.8px;color:var(--n600);line-height:1.5}
+.hf-gate .g .src{margin-top:7px;font-size:11px;color:var(--n400)}
+@media(max-width:620px){.hf-gate .g{grid-template-columns:1fr;gap:7px}}
+
+.hf-ring{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hf-ring .rr{position:relative;width:132px;height:132px;flex:0 0 auto}
+.hf-ring .rr svg{transform:rotate(-90deg)}
+.hf-ring .rr b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-numeric);font-size:25px;font-weight:300;color:var(--green-800);letter-spacing:-0.03em}
+.hf-ring .tx{flex:1;min-width:190px;font-size:13.8px;color:var(--n600);line-height:1.5}
+
+.hf-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--n200);border-radius:13px;overflow:hidden}
+.hf-split > div{padding:18px 18px}
+.hf-split .a{background:var(--green-100)}
+.hf-split .b{background:var(--neutral-0);border-left:1px solid var(--n200)}
+.hf-split h5{margin:0;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--green-700)}
+.hf-split .b h5{color:var(--n400)}
+.hf-split p{margin-top:9px;font-size:14.4px;line-height:1.55;color:var(--n700)}
+@media(max-width:640px){.hf-split{grid-template-columns:1fr}.hf-split .b{border-left:0;border-top:1px solid var(--n200)}}
+
+</style>
+</head>
+<body>
+
+<!-- ============================= HUB ============================= -->
+<section id="hub" class="view on" tabindex="-1" aria-label="Portada e índice">
+  <div class="hub-inner">
+    <div class="hub-top">
+      <div>
+        <div class="lockup" role="img" aria-label="London Consulting Group"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1868.52 453.72"> <g> <path fill="currentColor" d="M1270.26,108.99c0-60.2-48.44-108.99-108.2-108.99s-108.2,48.79-108.2,108.99,48.44,109,108.2,109,108.2-48.79,108.2-109Z"/> <path fill="currentColor" d="M463.78,108.99c0-60.2-48.44-108.99-108.2-108.99s-108.2,48.79-108.2,108.99,48.44,109,108.2,109,108.2-48.79,108.2-109Z"/> <path fill="currentColor" d="M828.58,217.99c59.76,0,108.2-48.79,108.2-109S888.34,0,828.58,0"/> <path fill="currentColor" d="M217.98,217.99H9.8c-5.41,0-9.8-4.39-9.8-9.8V0"/> <path fill="currentColor" d="M493.33,0h208.17c5.41,0,9.8,4.39,9.8,9.8v208.19"/> <path fill="currentColor" d="M1299.56,0h208.17c5.41,0,9.8,4.39,9.8,9.8v208.19"/> <g> <path fill="currentColor" d="M1659.3,17.53c-2.36-3.06-4.9-5.29-10.45-5.29-5.09,0-8.53,2.29-8.53,6.88,0,5.22,3.95,7.01,10.38,8.15,8.47,1.46,13.63,4.52,13.63,12.67,0,5.73-3.82,12.29-14.78,12.29-7.13,0-12.36-2.42-15.67-7.2l4.52-3.12c2.87,3.38,5.41,5.35,11.15,5.35,7.2,0,9.3-3.31,9.3-7.07,0-4.14-2.1-6.94-10.38-8.22s-13.63-5.22-13.63-12.87c0-6.31,4.14-11.85,14.2-11.85,7.01,0,11.4,2.36,14.52,7.2l-4.27,3.06Z"/> <path fill="currentColor" d="M1671.53,7.79h5.1v15.22c1.59-2.42,3.82-3.63,8.53-3.63,6.81,0,11.59,3.57,11.59,12.48v19.87h-5.1v-19.81c0-6.43-3.5-7.83-7.26-7.83-4.78,0-7.77,3.38-7.77,7.77v19.87h-5.1V7.79Z"/> <path fill="currentColor" d="M1715.35,33.33h7.58v-3.69c0-4.52-2.1-5.54-7.07-5.54-3.82,0-5.86.32-7.64,3.25l-3.82-2.67c2.23-3.69,5.48-5.29,11.53-5.29,8.09,0,12.1,2.61,12.1,10.25v22.1h-5.09v-3.12c-1.78,2.93-3.95,3.63-8.09,3.63-7.39,0-11.4-3.63-11.4-9.81,0-6.88,4.9-9.11,11.91-9.11ZM1722.93,37.66h-7.58c-5.03,0-6.82,1.72-6.82,4.9,0,3.57,2.55,4.97,6.31,4.97,4.71,0,8.09-.89,8.09-8.02v-1.85Z"/> <path fill="currentColor" d="M1750.06,19.38c7.9,0,12.74,5.16,12.74,14.27v4.2c0,8.28-4.08,14.39-12.74,14.39-4.2,0-6.94-1.34-8.66-3.69v15.29h-5.1V19.89h5.1v3.18c1.72-2.36,4.46-3.69,8.66-3.69ZM1757.7,37.85v-4.2c0-6.05-2.93-9.68-8.15-9.68s-8.15,3.5-8.15,9.24v4.65c0,5.48,2.29,9.81,8.15,9.81,5.41,0,8.15-4.39,8.15-9.81Z"/> <path fill="currentColor" d="M1792.67,46.9c-2.23,3.88-5.6,5.35-11.15,5.35-8.54,0-13.63-5.54-13.63-14.39v-4.2c0-9.04,4.27-14.27,12.61-14.27s12.61,5.16,12.61,14.27v3.31h-20.13v.89c0,5.48,2.61,9.81,8.15,9.81,4.14,0,6.24-1.21,7.58-3.57l3.95,2.8ZM1772.99,32.5h14.97c-.25-5.35-2.61-8.54-7.45-8.54s-7.2,3.25-7.52,8.54Z"/> <path fill="currentColor" d="M1638.73,90.85l10,19.11,10-19.11h6.43l-13.69,25.09v18.85h-5.48v-18.85l-13.69-25.09h6.43Z"/> <path fill="currentColor" d="M1691.15,120.91c0,8.28-4.08,14.39-13.25,14.39-8.47,0-13.25-5.6-13.25-14.39v-4.2c0-9.04,4.9-14.27,13.25-14.27s13.25,5.16,13.25,14.27v4.2ZM1686.05,120.91v-4.2c0-6.05-2.93-9.68-8.15-9.68s-8.15,3.69-8.15,9.68v4.2c0,5.48,2.29,9.81,8.15,9.81,5.41,0,8.15-4.39,8.15-9.81Z"/> <path fill="currentColor" d="M1723.06,134.8h-5.1v-3.12c-1.59,2.42-3.82,3.63-8.53,3.63-6.81,0-11.59-3.57-11.59-12.48v-19.87h5.1v19.81c0,6.43,3.5,7.83,7.26,7.83,4.78,0,7.77-3.38,7.77-7.77v-19.87h5.1v31.85Z"/> <path fill="currentColor" d="M1748.6,109.83c-1.34-1.85-2.99-2.67-5.35-2.67-3.88,0-6.81,2.93-6.81,7.71v19.94h-5.1v-31.85h5.1v3.12c1.34-2.23,3.5-3.63,7.39-3.63,4.33,0,7.07,1.46,9.11,4.33l-4.33,3.06Z"/> <path fill="currentColor" d="M1649.87,173.91c10.25,0,15.16,3.89,15.16,11.21,0,4.59-2.99,8.79-7.26,9.81,5.54,1.02,8.66,4.71,8.66,10.32,0,6.37-3.89,12.61-15.16,12.61h-14.84v-43.95h13.44ZM1641.91,192.57h8.92c6.18,0,8.73-3.12,8.73-7.45,0-3.89-1.97-6.31-9.68-6.31h-7.96v13.76ZM1641.91,212.89h9.36c6.62,0,9.68-2.87,9.68-7.64,0-5.29-3.44-7.71-10.7-7.71h-8.34v15.35Z"/> <path fill="currentColor" d="M1698.34,217.86h-5.1v-3.12c-1.59,2.42-3.82,3.63-8.53,3.63-6.81,0-11.59-3.57-11.59-12.48v-19.87h5.1v19.81c0,6.43,3.5,7.83,7.26,7.83,4.78,0,7.77-3.38,7.77-7.77v-19.87h5.1v31.84Z"/> <path fill="currentColor" d="M1724.52,193.47c-1.72-2.23-3.5-3.25-7.9-3.25-3.76,0-6.18,1.46-6.18,4.27,0,3.63,3.18,4.71,7.39,5.03,5.99.45,11.46,2.17,11.46,9.49,0,5.54-3.76,9.36-11.97,9.36-6.5,0-9.87-1.97-12.29-5.29l3.76-2.67c1.72,2.29,4.01,3.25,8.6,3.25,4.27,0,6.82-1.66,6.82-4.52,0-3.44-2.04-4.65-8.22-5.09-5.35-.38-10.64-2.55-10.64-9.49,0-5.29,3.82-9.04,11.4-9.04,5.16,0,9.11,1.34,11.59,5.29l-3.82,2.67Z"/> <path fill="currentColor" d="M1736.94,173.91h5.73v5.73h-5.73v-5.73ZM1737.26,186.01h5.1v31.84h-5.1v-31.84Z"/> <path fill="currentColor" d="M1751.59,186.01h5.1v3.12c1.59-2.42,3.82-3.63,8.53-3.63,6.81,0,11.59,3.57,11.59,12.48v19.87h-5.1v-19.81c0-6.43-3.5-7.83-7.26-7.83-4.78,0-7.77,3.38-7.77,7.77v19.87h-5.1v-31.84Z"/> <path fill="currentColor" d="M1808.27,213.02c-2.23,3.89-5.6,5.35-11.15,5.35-8.54,0-13.63-5.54-13.63-14.39v-4.2c0-9.04,4.27-14.27,12.61-14.27s12.61,5.16,12.61,14.27v3.31h-20.13v.89c0,5.48,2.61,9.81,8.15,9.81,4.14,0,6.24-1.21,7.58-3.57l3.95,2.8ZM1788.59,198.63h14.97c-.25-5.35-2.61-8.53-7.45-8.53s-7.2,3.25-7.52,8.53Z"/> <path fill="currentColor" d="M1834.07,193.47c-1.72-2.23-3.5-3.25-7.9-3.25-3.76,0-6.18,1.46-6.18,4.27,0,3.63,3.18,4.71,7.39,5.03,5.99.45,11.46,2.17,11.46,9.49,0,5.54-3.76,9.36-11.97,9.36-6.5,0-9.87-1.97-12.29-5.29l3.76-2.67c1.72,2.29,4.01,3.25,8.6,3.25,4.27,0,6.82-1.66,6.82-4.52,0-3.44-2.04-4.65-8.22-5.09-5.35-.38-10.64-2.55-10.64-9.49,0-5.29,3.82-9.04,11.4-9.04,5.16,0,9.11,1.34,11.59,5.29l-3.82,2.67Z"/> <path fill="currentColor" d="M1863.75,193.47c-1.72-2.23-3.5-3.25-7.9-3.25-3.76,0-6.18,1.46-6.18,4.27,0,3.63,3.18,4.71,7.39,5.03,5.99.45,11.46,2.17,11.46,9.49,0,5.54-3.76,9.36-11.97,9.36-6.5,0-9.87-1.97-12.29-5.29l3.76-2.67c1.72,2.29,4.01,3.25,8.6,3.25,4.27,0,6.82-1.66,6.82-4.52,0-3.44-2.04-4.65-8.22-5.09-5.35-.38-10.64-2.55-10.64-9.49,0-5.29,3.82-9.04,11.4-9.04,5.16,0,9.11,1.34,11.59,5.29l-3.82,2.67Z"/> </g> <path fill="currentColor" d="M828.58,217.99c59.76,0,108.2-48.79,108.2-109S888.34,0,828.58,0"/> </g> <g> <path fill="currentColor" d="M1543.79,311.28c12.34,0,22.47,10.12,22.47,22.47s-10.12,22.47-22.47,22.47-22.47-10.12-22.47-22.47,10.12-22.47,22.47-22.47ZM1543.79,351.16c9.59,0,17.4-7.81,17.4-17.4s-7.81-17.4-17.4-17.4-17.4,7.81-17.4,17.4,7.81,17.4,17.4,17.4ZM1534.73,345.03v-23.18h9.5c6.39,0,8.61,3.82,8.61,7.02,0,3.64-1.86,5.86-4.97,6.93l6.13,9.24h-5.24l-5.68-8.61h-3.73v8.61h-4.62ZM1543.26,332.51c3.46,0,4.97-1.07,4.97-3.55,0-2.13-1.6-3.11-4.53-3.11h-4.35v6.66h3.91Z"/> <g> <path fill="currentColor" d="M11.43,414.53h47.2v11.16H-.87v-98.69h12.3v87.54Z"/> <path fill="currentColor" d="M123.85,394.51c0,18.59-9.15,32.33-29.75,32.33-19.02,0-29.75-12.59-29.75-32.33v-9.44c0-20.31,11.01-32.04,29.75-32.04s29.75,11.59,29.75,32.04v9.44ZM112.41,394.51v-9.44c0-13.59-6.58-21.74-18.31-21.74s-18.31,8.3-18.31,21.74v9.44c0,12.3,5.15,22.03,18.31,22.03,12.16,0,18.31-9.87,18.31-22.03Z"/> <path fill="currentColor" d="M138.87,354.17h11.44v7.01c3.58-5.44,8.58-8.15,19.17-8.15,15.3,0,26.03,8.01,26.03,28.04v44.63h-11.44v-44.48c0-14.45-7.87-17.59-16.31-17.59-10.73,0-17.45,7.58-17.45,17.45v44.63h-11.44v-71.52Z"/> <path fill="currentColor" d="M258.6,326.99h11.44v98.69h-11.44v-6.29c-3.86,5.01-10.01,7.44-19.45,7.44-19.45,0-28.61-13.73-28.61-32.33v-9.44c0-20.45,10.87-32.04,28.61-32.04,9.44,0,15.59,3,19.45,8.3v-34.33ZM258.6,395.51v-10.44c0-13.45-6.58-21.74-18.31-21.74s-18.31,8.15-18.31,21.74v9.44c0,12.16,6.15,22.03,18.31,22.03s18.31-9.15,18.31-21.03Z"/> <path fill="currentColor" d="M344.56,394.51c0,18.59-9.15,32.33-29.75,32.33-19.02,0-29.75-12.59-29.75-32.33v-9.44c0-20.31,11.01-32.04,29.75-32.04s29.75,11.59,29.75,32.04v9.44ZM333.12,394.51v-9.44c0-13.59-6.58-21.74-18.31-21.74s-18.31,8.3-18.31,21.74v9.44c0,12.3,5.15,22.03,18.31,22.03,12.16,0,18.31-9.87,18.31-22.03Z"/> <path fill="currentColor" d="M359.58,354.17h11.44v7.01c3.58-5.44,8.58-8.15,19.17-8.15,15.3,0,26.03,8.01,26.03,28.04v44.63h-11.44v-44.48c0-14.45-7.87-17.59-16.31-17.59-10.73,0-17.45,7.58-17.45,17.45v44.63h-11.44v-71.52Z"/> <path fill="currentColor" d="M527.65,357.75c-3.43-15.45-11.3-20.74-23.46-20.74-15.16,0-23.46,9.44-23.46,33.9v10.87c0,24.46,8.3,33.9,23.46,33.9,12.87,0,20.17-6.29,23.46-20.74h11.87c-3.15,22.17-16.59,31.9-35.33,31.9-21.88,0-35.76-13.16-35.76-45.06v-10.87c0-31.9,13.87-45.06,35.76-45.06,19.45,0,32.33,10.3,35.47,31.9h-12.02Z"/> <path fill="currentColor" d="M609.18,394.51c0,18.59-9.15,32.33-29.75,32.33-19.02,0-29.75-12.59-29.75-32.33v-9.44c0-20.31,11.01-32.04,29.75-32.04s29.75,11.59,29.75,32.04v9.44ZM597.74,394.51v-9.44c0-13.59-6.58-21.74-18.31-21.74s-18.31,8.3-18.31,21.74v9.44c0,12.3,5.15,22.03,18.31,22.03,12.16,0,18.31-9.87,18.31-22.03Z"/> <path fill="currentColor" d="M624.2,354.17h11.44v7.01c3.58-5.44,8.58-8.15,19.17-8.15,15.3,0,26.03,8.01,26.03,28.04v44.63h-11.44v-44.48c0-14.45-7.87-17.59-16.31-17.59-10.73,0-17.45,7.58-17.45,17.45v44.63h-11.44v-71.52Z"/> <path fill="currentColor" d="M739.63,370.91c-3.86-5.01-7.87-7.29-17.74-7.29-8.44,0-13.87,3.29-13.87,9.58,0,8.15,7.15,10.58,16.59,11.3,13.45,1,25.75,4.86,25.75,21.31,0,12.44-8.44,21.03-26.89,21.03-14.59,0-22.17-4.43-27.61-11.87l8.44-6.01c3.86,5.15,9.01,7.29,19.31,7.29,9.58,0,15.31-3.72,15.31-10.16,0-7.72-4.58-10.44-18.45-11.44-12.02-.86-23.89-5.72-23.89-21.31,0-11.87,8.58-20.31,25.6-20.31,11.59,0,20.45,3,26.03,11.87l-8.58,6.01Z"/> <path fill="currentColor" d="M822.74,425.69h-11.44v-7.01c-3.58,5.44-8.58,8.15-19.17,8.15-15.31,0-26.03-8.01-26.03-28.04v-44.63h11.44v44.48c0,14.45,7.87,17.59,16.31,17.59,10.73,0,17.45-7.58,17.45-17.45v-44.63h11.44v71.52Z"/> <path fill="currentColor" d="M841.33,326.99h11.44v73.81c0,7.72.43,14.3,12.16,14.3v10.58c-18.02,0-23.6-7.15-23.6-22.03v-76.67Z"/> <path fill="currentColor" d="M874.23,354.17h9.15v-15.73h11.44v15.73h16.45v10.3h-16.45v36.33c0,9.87,1.14,14.02,10.73,14.02h5.72v10.87h-6.15c-16.88,0-21.74-7.15-21.74-22.03v-39.19h-9.15v-10.3Z"/> <path fill="currentColor" d="M927.01,326.99h12.87v12.87h-12.87v-12.87ZM927.73,354.17h11.44v71.52h-11.44v-71.52Z"/> <path fill="currentColor" d="M959.91,354.17h11.44v7.01c3.58-5.44,8.58-8.15,19.17-8.15,15.3,0,26.03,8.01,26.03,28.04v44.63h-11.44v-44.48c0-14.45-7.87-17.59-16.31-17.59-10.73,0-17.45,7.58-17.45,17.45v44.63h-11.44v-71.52Z"/> <path fill="currentColor" d="M1079.63,354.17h11.44v70.09c0,19.88-11.44,29.47-30.61,29.47-12.44,0-20.02-3.29-25.03-12.02l8.87-6.29c3,5.29,7.72,8.01,17.02,8.01,12.44,0,18.31-6.87,18.31-19.17v-4.86c-3.86,5.01-10.01,7.44-19.45,7.44-19.45,0-28.61-13.73-28.61-32.33v-9.44c0-20.45,10.87-32.04,28.61-32.04,9.44,0,15.59,3,19.45,8.3v-7.15ZM1079.63,394.51v-9.44c0-13.45-6.58-21.74-18.31-21.74s-18.31,8.15-18.31,21.74v9.44c0,12.16,6.15,22.03,18.31,22.03,13.16,0,18.31-9.73,18.31-22.03Z"/> <path fill="currentColor" d="M1215.38,376.05v5.72c0,31.9-14.45,45.06-36.33,45.06s-35.76-13.16-35.76-45.06v-10.87c0-31.9,13.88-45.06,35.76-45.06,19.17,0,32.33,10.16,35.47,31.9h-12.02c-3.15-14.73-10.87-20.74-23.46-20.74-15.16,0-23.46,9.44-23.46,33.9v10.87c0,24.46,8.3,33.9,23.46,33.9,13.87,0,22.6-8.01,23.89-28.46h-23.46v-11.16h35.9Z"/> <path fill="currentColor" d="M1270.59,369.62c-3-4.15-6.72-6.01-12.02-6.01-8.72,0-15.3,6.58-15.3,17.31v44.77h-11.44v-71.52h11.44v7.01c3-5.01,7.87-8.15,16.59-8.15,9.73,0,15.88,3.29,20.45,9.73l-9.73,6.87Z"/> <path fill="currentColor" d="M1344.11,394.51c0,18.59-9.15,32.33-29.75,32.33-19.02,0-29.75-12.59-29.75-32.33v-9.44c0-20.31,11.01-32.04,29.75-32.04s29.75,11.59,29.75,32.04v9.44ZM1332.67,394.51v-9.44c0-13.59-6.58-21.74-18.31-21.74s-18.31,8.3-18.31,21.74v9.44c0,12.3,5.15,22.03,18.31,22.03,12.16,0,18.31-9.87,18.31-22.03Z"/> <path fill="currentColor" d="M1415.77,425.69h-11.44v-7.01c-3.58,5.44-8.58,8.15-19.17,8.15-15.3,0-26.03-8.01-26.03-28.04v-44.63h11.44v44.48c0,14.45,7.87,17.59,16.31,17.59,10.73,0,17.45-7.58,17.45-17.45v-44.63h11.44v71.52Z"/> <path fill="currentColor" d="M1465.27,353.03c17.74,0,28.61,11.59,28.61,32.04v9.44c0,18.59-9.15,32.33-28.61,32.33-9.44,0-15.59-3-19.45-8.3v34.33h-11.44v-98.69h11.44v7.15c3.86-5.29,10.01-8.3,19.45-8.3ZM1482.43,394.51v-9.44c0-13.59-6.58-21.74-18.31-21.74s-18.31,7.87-18.31,20.74v10.44c0,12.3,5.15,22.03,18.31,22.03,12.16,0,18.31-9.87,18.31-22.03Z"/> </g> </g> </svg></div>
+        <div class="claim">Shape Your Business</div>
+      </div>
+      <div class="prospect-mark">
+        <span>Análisis preparado para</span>
+        <p class="addressee">
+          <b>Rigoberto Guerrero</b><br>
+          Director General · Hortifrut México<br>
+          <b style="font-size:14.5px">Hans Hofmann</b><br>
+          Director de Supply Chain · Norteamérica<br>
+          <span class="org">Zapopan, Jalisco · Octubre de 2026</span>
+        </p>
+      </div>
+    </div>
+
+    <h1 class="hub-h1">Cerraron los campos que no daban. <em>Lo que queda es una red que hay que gobernar.</em></h1>
+
+    <p class="hub-lede">
+      En el primer trimestre de 2025 Hortifrut cerró operaciones agrícolas en México y reconoció el deterioro.
+      Fue una decisión de portafolio, no un retroceso. Pero mueve el centro de gravedad del negocio mexicano hacia
+      el productor asociado — y el 1 de octubre de 2026 el Estado mexicano empezó a condicionar la exportación
+      agrícola al cumplimiento laboral verificable de quien corta la fruta. Las berries son la siguiente cadena anunciada.
+    </p>
+
+    <span class="priv"><i></i>Documento privado · Inteligencia estratégica</span>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="v num">1,215<sup>MUSD</sup></div>
+        <div class="l">Ingresos consolidados 2025, 5.23% sobre 2024, por mayores volúmenes en todos los mercados</div>
+        <div class="s">Hortifrut S.A. a la CMF · reportado marzo de 2026</div>
+      </div>
+      <div class="kpi">
+        <div class="v num">90.3<sup>MUSD</sup></div>
+        <div class="l">Deterioro de valor de activos 2025, explicado por el cierre de operaciones agrícolas en México en el 1T de 2025</div>
+        <div class="s">Análisis Razonado Dic-2025 · CMF Chile</div>
+      </div>
+      <div class="kpi">
+        <div class="v num">30<sup>M kg</sup></div>
+        <div class="l">Frambuesa manejada hoy en México, contra un millón de kilos hace ocho años, según la dirección general</div>
+        <div class="s">Rigoberto Guerrero · Portal Frutícola · 1 jul 2026</div>
+      </div>
+      <div class="kpi">
+        <div class="v num">1 oct<sup>2026</sup></div>
+        <div class="l">Certificado Laboral para la Agroexportación obligatorio en aguacate. Berries es la siguiente cadena anunciada</div>
+        <div class="s">DOF · Acuerdo STPS · 1 de octubre de 2026</div>
+      </div>
+    </div>
+
+    <div class="idx-head">
+      <h2>Contenido</h2>
+      <span>Catorce secciones · dos minutos de lectura cada una</span>
+    </div>
+
+    <nav class="grid-idx" aria-label="Índice de secciones">
+      <button class="tile" data-go="s1"><span class="n num">01</span><span class="t">La tesis</span><span class="d">Dónde se movió la restricción del negocio mexicano y cómo se refuta</span></button>
+      <button class="tile" data-go="s2"><span class="n num">02</span><span class="t">Lo que ya está resuelto</span><span class="d">Genética, decisión de portafolio, plataforma comercial y planeación global</span></button>
+      <button class="tile" data-go="s3"><span class="n num">03</span><span class="t">El mercado cambió</span><span class="d">Volumen récord, valor a la baja y la primera caída en 28 años</span></button>
+      <button class="tile" data-go="s4"><span class="n num">04</span><span class="t">Hortifrut cambió</span><span class="d">Línea de tiempo 2023–2026: CEO, cierre de campos, genética y red</span></button>
+      <button class="tile" data-go="s5"><span class="n num">05</span><span class="t">La red de productores</span><span class="d">De la hectárea propia al productor asociado: qué cambia al gestionar</span></button>
+      <button class="tile" data-go="s6"><span class="n num">06</span><span class="t">Forzadores con fecha</span><span class="d">CLA, jornada de 46 horas, Ley de Aguas y entorno en Michoacán</span></button>
+      <button class="tile" data-go="s7"><span class="n num">07</span><span class="t">Benchmark competitivo</span><span class="d">Cinco actores del panel de Guadalajara, cinco variables derivadas de la tesis</span></button>
+      <button class="tile" data-go="s8"><span class="n num">08</span><span class="t">Implicaciones de ejecución</span><span class="d">Cinco consecuencias operativas de administrar una red que no es tuya</span></button>
+      <button class="tile live" data-go="s9"><span class="n num">09</span><span class="t">IA y agentes</span><span class="d">Seis decisiones repetitivas de la red que pueden acelerarse</span></button>
+      <button class="tile" data-go="s10"><span class="n num">10</span><span class="t">Datos y bifurcaciones</span><span class="d">Tres preguntas que cambian materialmente el alcance del trabajo</span></button>
+      <button class="tile" data-go="s11"><span class="n num">11</span><span class="t">Hipótesis</span><span class="d">Seis hipótesis formuladas para poder ser refutadas</span></button>
+      <button class="tile" data-go="s12"><span class="n num">12</span><span class="t">Prediagnóstico</span><span class="d">Los siete inputs del Estudio de Factibilidad de LCG</span></button>
+      <button class="tile" data-go="s13"><span class="n num">13</span><span class="t">Casos de éxito</span><span class="d">Agro Gonzámex, La Norteñita y El Cerezo: cifras publicadas</span></button>
+      <button class="tile" data-go="s14"><span class="n num">14</span><span class="t">Método y fuentes</span><span class="d">Clasificación de evidencia, fuentes y limitaciones declaradas</span></button>
+      <button class="tile cta" data-go="cta"><span class="n num">→</span><span class="t">Contrastar la hipótesis · 45 minutos</span><span class="d">Si alguna de estas seis hipótesis está mal planteada, esa información también sirve</span></button>
+    </nav>
+
+    <p class="hub-foot">
+      Documento preparado por London Consulting Group México exclusivamente a partir de fuentes públicas.
+      No contiene información confidencial de Hortifrut, de sus productores asociados ni de sus clientes.
+      Cada afirmación está clasificada como hecho, señal, hipótesis o implicación. Hortifrut S.A. reporta a la
+      Comisión para el Mercado Financiero de Chile, de modo que sus cifras consolidadas son auditables; la
+      operación mexicana no se reporta por separado, así que no existen hectáreas, volúmenes, costos ni número
+      de productores de Hortifrut México verificables, y esta pieza no los estima. Las limitaciones completas
+      están declaradas en la sección 14.
+    </p>
+  </div>
+</section>
+
+<!-- ============================= 01 TESIS ============================= -->
+<section id="s1" class="view" aria-label="Sección 1">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">La tesis</h1>
+    <p class="eyebrow"><span class="num">01</span> La tesis</p>
+    <h2 class="sec">La unidad de gestión dejó de ser la hectárea propia y pasó a ser el productor asociado</h2>
+    <p class="lede">
+      Decidir qué campo cierra es una capacidad, no una debilidad: Hortifrut la ejerció en el primer trimestre de
+      2025 y la reconoció contablemente. Lo que esa decisión deja abierto es otra pregunta: cómo se gobierna el
+      volumen mexicano cuando una parte mayor de él nace en tierra que no es tuya, con cuadrillas que no son tu
+      nómina, justo cuando el Estado empezó a pedir cuentas de esas cuadrillas para dejar salir la caja.
+    </p>
+
+    <div class="body">
+      <div class="callout">
+        <h4>Core Business Hypothesis</h4>
+        <p>
+          El siguiente tramo de valor de Hortifrut en México <b>no depende de volver a plantar hectárea propia ni
+          de más genética</b> —ambos frentes están resueltos y el cierre de campos de 2025 lo demuestra— <b>sino de
+          convertir la red de productores asociados en una operación medible y certificable productor por productor
+          y cuadrilla por cuadrilla</b>, porque desde el 1 de octubre de 2026 el Estado mexicano condiciona la
+          exportación agrícola al cumplimiento laboral verificable de quien corta la fruta, y las berries son
+          la siguiente cadena anunciada.
+        </p>
+      </div>
+
+      <h3 class="sub">Dónde se movió el cuello de botella</h3>
+      <div class="hf-net">
+        <div class="nd own"><div class="ic">ANTES</div><h5>Campo propio</h5><p>Frambuesa y arándano en Michoacán y Jalisco bajo control agronómico directo. Se mide lo que se opera.</p></div>
+        <div class="ar">&#8594;</div>
+        <div class="nd net"><div class="ic">HOY</div><h5>Red de productores</h5><p><b>Aquí está la restricción.</b> Genética licenciada, mora captada de terceros, cosecha ejecutada por cuadrillas que no son nómina propia.</p></div>
+        <div class="ar">&#8594;</div>
+        <div class="nd mkt"><div class="ic">DESTINO</div><h5>Plataforma comercial</h5><p>Naturipe, Euroberry y Asian Berries. Programas, calidad en destino y el sello Sweet Selections.</p></div>
+      </div>
+      <p class="cap">
+        Esquema cualitativo de la cadena de valor declarada por Hortifrut en investor.hortifrut.com y en el
+        publirreportaje de Portal Frutícola del 1 de julio de 2026. No es una medición ni un scoring: la ubicación
+        de la restricción en la etapa intermedia es una hipótesis del análisis, derivada de que los extremos tienen
+        evidencia pública verificable y el centro no.
+      </p>
+
+      <div class="g2">
+        <div class="tab hip">
+          <span class="lab">Hipótesis</span>
+          <h4>Qué sostiene esta tesis</h4>
+          <p>
+            Cuatro hechos con fuente y fecha. Uno: el deterioro de activos de 2025 llegó a 90.3 millones de dólares
+            y la compañía lo explicó por el cierre de operaciones agrícolas en México en el primer trimestre de 2025.
+            Dos: el modelo declarado en México incluye exportar mora captada de productores terceros y licenciar
+            genética propia a productores integrados a la red.
+          </p>
+          <p>
+            Tres: desde el 1 de octubre de 2026 el Certificado Laboral para la Agroexportación es obligatorio para
+            exportar aguacate y se declara en el pedimento; la STPS anunció que el esquema se extiende gradualmente
+            a otros productos, entre ellos las berries. Cuatro: desde el 1 de enero de 2027 la jornada máxima baja a
+            46 horas y el registro electrónico de jornada se vuelve exigible para todo patrón, sin distinción de
+            tamaño ni de sector.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Cómo se refuta</span>
+          <h4>Las cuatro preguntas que la ponen a prueba</h4>
+          <p>
+            Todo lo anterior se construyó desde fuera. La tesis se sostiene o se cae con cuatro preguntas que solo
+            ustedes pueden contestar:
+          </p>
+          <ol class="qs">
+            <li>¿Cómo se ve hoy, en un solo lugar, el estatus de cumplimiento laboral de cada productor y cada cuadrilla que surte a Hortifrut México?</li>
+            <li>¿Qué pasa con el programa de embarque de la semana si un productor relevante no puede acreditar ese cumplimiento?</li>
+            <li>¿Con qué granularidad se conoce hoy el costo de cosecha por kilo, por variedad y por productor?</li>
+            <li>¿Qué parte de la decisión semanal de volumen se toma con dato y qué parte con la relación de campo?</li>
+          </ol>
+          <p>
+            Si las cuatro ya están resueltas y se usan para decidir, la oportunidad está en otro lado y también es
+            útil saberlo. Averiguarlo toma una conversación, no un proyecto.
+          </p>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Lo que este documento no hace.</b> No estima hectáreas, volúmenes, costo por kilo, número de productores
+        asociados ni headcount de Hortifrut México. La compañía consolida a nivel global ante la CMF de Chile y no
+        desagrega México; cualquier cifra país que circule en agregadores comerciales es estimación de terceros y
+        ninguna se usó aquí.
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 02 LO QUE YA ESTÁ RESUELTO ============================= -->
+<section id="s2" class="view" aria-label="Sección 2">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Lo que ya está resuelto</h1>
+    <p class="eyebrow"><span class="num">02</span> Lo que ya está resuelto</p>
+    <h2 class="sec">Inventario de capacidades que Hortifrut ya demuestra públicamente</h2>
+    <p class="lede">
+      Este análisis empieza por aquí a propósito. Una pieza que le sugiera a Hortifrut que le falta genética,
+      disciplina de portafolio o plataforma comercial sería incorrecta y se notaría en el primer párrafo.
+      Lo que sigue en las otras trece secciones solo tiene sentido si antes queda claro qué no está en discusión.
+    </p>
+
+    <div class="body">
+      <div class="g2">
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Programa genético propio, con pipeline y licencia a terceros</h4>
+          <p>
+            Hortifrut Genetics desarrolla y licencia variedades. En frambuesa, Centennial y RubyChic®; en zarzamora,
+            Fenomenal, con cañas sin espinas y solución a la reversión de color. En evaluación: Vicentina, RubyTop®,
+            OnyxMax® y OnyxJoy®, con OnyxMax® bajo estudio agroclimático en Jalisco y Baja California.
+          </p>
+          <p class="src">Portal Frutícola, publirreportaje, 1 de julio de 2026. Ellen Thompson, Global Rubus Breeding &amp; Development Director.</p>
+        </div>
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Disciplina para cerrar lo que no rinde, y reconocerlo</h4>
+          <p>
+            En el primer trimestre de 2025 la compañía cerró operaciones agrícolas en México que no generaban los
+            resultados esperados y reconoció el deterioro correspondiente ante la CMF, en el mismo ejercicio.
+            Muy pocas agroindustrias de la región ejecutan y publican esa decisión en el mismo año.
+          </p>
+          <p class="src">Análisis Razonado de los estados financieros consolidados a diciembre de 2025, Hortifrut S.A. ante la CMF de Chile.</p>
+        </div>
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Plataforma comercial en destino y sello premium</h4>
+          <p>
+            La fruta mexicana se canaliza a Naturipe Farms, Euroberry y Asian Berries según mercado. Con Naturipe,
+            Hortifrut creó Sweet Selections®, una etiqueta de diferenciación en anaquel estadounidense que, en
+            palabras de la propia compañía, permite a los productores integrados a su red escapar del commodity.
+          </p>
+          <p class="src">investor.hortifrut.com, sección Compañía · Portal Frutícola, 1 de julio de 2026.</p>
+        </div>
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Planeación corporativa sobre SAP IBP</h4>
+          <p>
+            La compañía estandarizó procesos de planeación a nivel corporativo con SAP IBP en demanda, suministro y
+            respuesta, con rol de product owner global y una dirección corporativa de S&amp;OP. La capa de planeación
+            agregada existe y es multi-país.
+          </p>
+          <p class="src">Perfil público de LinkedIn del Director Corporativo de S&amp;OP de Hortifrut, consultado en octubre de 2026. Señal de capacidad instalada, no documento corporativo.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Lo que la dirección dice de su propio modelo</h3>
+      <div class="hf-split">
+        <div class="a">
+          <h5>Rigoberto Guerrero · Director General, Hortifrut México</h5>
+          <p>
+            «El productor mexicano es extraordinariamente técnico; por ello, combinamos su experiencia con nuestro
+            rigor científico.»
+          </p>
+          <p style="font-size:13px;color:var(--n500);margin-top:12px">
+            En el mismo texto: «Pasamos de no tener frambuesa hace 8 años, que manejábamos un millón de kilos, a
+            manejar 30 millones de kilos actualmente, principalmente por Centennial y Ruby Chic.»
+          </p>
+          <p class="small" style="margin-top:12px">Portal Frutícola · 1 de julio de 2026 · publirreportaje de Hortifrut</p>
+        </div>
+        <div class="b">
+          <h5>Lectura</h5>
+          <p>
+            La frase no es cortesía: es la descripción del modelo. El conocimiento agronómico está distribuido en
+            la red, no centralizado en Hortifrut. Eso es una ventaja de velocidad y una exposición de gobierno al
+            mismo tiempo.
+          </p>
+          <p>
+            Cuando el activo técnico vive en el productor, lo que Hortifrut aporta es genética, mercado y
+            coordinación. Las tres se defienden con información, no con hectáreas.
+          </p>
+        </div>
+      </div>
+
+      <div class="tab imp">
+        <span class="lab">Implicación</span>
+        <h4>Por qué esto hace más fuerte la tesis, no más débil</h4>
+        <p>
+          Si los frentes evidentes estuvieran abiertos, la conversación sería agronómica y ya la tendrían con otro.
+          Están cerrados. Por eso la pregunta interesante de los próximos dieciocho meses no es qué sembrar ni con
+          qué variedad, sino cómo se administra, se mide y se acredita una red de terceros bajo un marco regulatorio
+          que cambió de naturaleza en 2026.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 03 EL MERCADO CAMBIÓ ============================= -->
+<section id="s3" class="view" aria-label="Sección 3">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">El mercado cambió</h1>
+    <p class="eyebrow"><span class="num">03</span> El mercado cambió</p>
+    <h2 class="sec">Más kilos, menos valor por kilo, y el primer retroceso agroalimentario en 28 años</h2>
+    <p class="lede">
+      Las berries mexicanas siguen creciendo en volumen. Lo que dejó de crecer al mismo ritmo es el valor.
+      En un mercado así, la rentabilidad no sale del kilo adicional: sale del costo con el que se produce ese kilo
+      y de la consistencia con la que llega.
+    </p>
+
+    <div class="body">
+      <div class="g4">
+        <div class="stat mint">
+          <div class="v num">700,500</div>
+          <div class="l">Toneladas exportadas de berries en 2025</div>
+          <div class="s">Portal Frutícola · 17 mar 2026</div>
+        </div>
+        <div class="stat cream">
+          <div class="v num">3,400<sup>MUSD</sup></div>
+          <div class="l">Valor de esas exportaciones en 2025. Cayó por la guerra de precios del arándano frente a Perú</div>
+          <div class="s">Portal Frutícola · 17 mar 2026</div>
+        </div>
+        <div class="stat dark">
+          <div class="v num">~20<sup>%</sup></div>
+          <div class="l">Crecimiento de volumen de frambuesa y zarzamora en 2025/26. El valor subió solo 10%</div>
+          <div class="s">Aneberries vía Chilealimentos · 6 jul 2026</div>
+        </div>
+        <div class="stat lime">
+          <div class="v num">&minus;10<sup>%</sup></div>
+          <div class="l">Caída de las compras agrícolas de EE. UU. a México en 2025: la primera en 28 años</div>
+          <div class="s">USDA vía Expansión · 17 jun 2026</div>
+        </div>
+      </div>
+
+      <h3 class="sub">La tijera: volumen arriba, valor por kilo abajo</h3>
+      <div class="panel">
+        <div class="pills">
+          <div class="pillwrap"><div class="pill" style="height:78%"><span>+20%</span></div><div class="pilllab">Volumen<br>frambuesa y zarzamora<br>2025/26</div></div>
+          <div class="pillwrap"><div class="pill neg" style="height:39%"><span>+10%</span></div><div class="pilllab">Valor<br>de esa misma<br>exportación</div></div>
+          <div class="pillwrap"><div class="pill hi" style="height:62%"><span>+16%</span></div><div class="pilllab">Producción<br>de arándano<br>proyectada 2026</div></div>
+          <div class="pillwrap"><div class="pill neg" style="height:34%"><span>&minus;17%</span></div><div class="pilllab">Producción<br>de fresa 2025/26<br>por heladas en vivero</div></div>
+          <div class="pillwrap"><div class="pill" style="height:30%"><span>+2%</span></div><div class="pilllab">Exportación total<br>de berries<br>proyectada 2026</div></div>
+        </div>
+        <p class="cap">
+          Las barras muestran variaciones porcentuales de distinta naturaleza y periodo, tomadas de Aneberries y de
+          Portal Frutícola entre marzo y julio de 2026. No constituyen una serie homogénea y no deben leerse como
+          una tendencia única: se presentan juntas porque describen el mismo fenómeno desde ángulos distintos.
+        </p>
+      </div>
+
+      <div class="g2">
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>El arándano mexicano se movió de ventana para no chocar con Perú</h4>
+          <p>
+            La industria desplazó su ventana productiva hacia primavera, de febrero a mayo, para capturar mejor
+            precio, y está sustituyendo variedades tradicionales como Biloxi por genéticas de mayor rendimiento.
+            La superficie pasó de 1,843 hectáreas en 2014/15 a alrededor de 11,000 en 2024/25, y buena parte del
+            aumento responde a recambio varietal más que a plantación nueva.
+          </p>
+          <p class="src">Portal Frutícola, 17 de marzo de 2026 · Aneberries, ciclo de diálogos por cultivo, noviembre de 2025.</p>
+        </div>
+        <div class="tab senal">
+          <span class="lab">Señal</span>
+          <h4>La temporada 2026 se cerró describiéndose como una de las más complejas</h4>
+          <p>
+            La industria mexicana de berries cierra 2026 como una de las temporadas más complejas de los últimos
+            años, según el vicepresidente de productores de Aneberries. Entre los límites citados por la propia
+            asociación aparecen de forma recurrente la disponibilidad de mano de obra calificada y la variabilidad
+            climática.
+          </p>
+          <p class="src">Expansión Política, 21 de julio de 2026 · Aneberries vía Blueberries Consulting, noviembre de 2025.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Qué significa para Hortifrut México</h4>
+        <p>
+          En un mercado de volumen creciente y precio a la baja, <b>el margen se defiende en el costo de cosecha y
+          en la merma</b>, que son exactamente las dos variables que viven dentro del productor asociado y no dentro
+          del estado de resultados de Hortifrut. El EBITDA consolidado de 2025 se sostuvo en 184.2 millones de
+          dólares; la presión no está en la plataforma, está en el campo que surte la plataforma.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 04 HORTIFRUT CAMBIÓ ============================= -->
+<section id="s4" class="view" aria-label="Sección 4">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Hortifrut cambió</h1>
+    <p class="eyebrow"><span class="num">04</span> Hortifrut cambió</p>
+    <h2 class="sec">Tres años de reordenamiento, con México en el centro de la decisión</h2>
+    <p class="lede">
+      Entre 2023 y 2026 Hortifrut cambió de control accionario conjunto, de CEO, de huella productiva y de forma
+      de llegar al productor mexicano. Cada hito tiene fuente y fecha. Juntos describen una compañía que decidió
+      competir con genética y plataforma antes que con superficie propia.
+    </p>
+
+    <div class="body">
+      <div class="tl">
+        <div class="ev">
+          <div class="d num">Abril 2023</div>
+          <div class="t">Acuerdo de actuación conjunta</div>
+          <div class="x">La compañía queda controlada de forma conjunta por los grupos Moller, VitalBerry y Quevedo mediante un acuerdo suscrito en abril de 2023. Nicolás Moller preside el directorio desde enero de 2023.</div>
+          <div class="s">Informe de clasificación ICR, julio de 2025</div>
+        </div>
+        <div class="ev key">
+          <div class="d num">1 julio 2024</div>
+          <div class="t">Nuevo CEO global, mexicano, con base en Norteamérica</div>
+          <div class="x">Héctor Enrique Luján Valladolid asume como CEO global tras más de una década en Reiter Affiliated Companies, donde fue presidente y CEO hasta inicios de 2024. Sustituye a Juan Ignacio Allende, que pasa al directorio de Naturipe.</div>
+          <div class="s">Comunicado Hortifrut S.A., 4 de junio de 2024</div>
+        </div>
+        <div class="ev key">
+          <div class="d num">1T 2025</div>
+          <div class="t">Cierre de operaciones agrícolas en México</div>
+          <div class="x">La compañía cierra algunas operaciones agrícolas en México que no generaban los resultados esperados. El deterioro de activos del ejercicio 2025 alcanza 90.3 millones de dólares, contra 71.6 millones en 2024, y se suma al recambio varietal en Perú y China.</div>
+          <div class="s">Análisis Razonado a diciembre de 2025, CMF Chile · Diario Financiero, 28 de noviembre de 2025</div>
+        </div>
+        <div class="ev">
+          <div class="d num">Cierre 2025</div>
+          <div class="t">Ingresos al alza, resultado contable a la baja</div>
+          <div class="x">Ingresos de 1,215 millones de dólares, 5.23% sobre 2024, por mayores volúmenes en todos los mercados. EBITDA de 184.2 millones, prácticamente plano. Pérdida atribuible a los propietarios de 77.7 millones, contra 45.5 millones en 2024, explicada principalmente por el deterioro.</div>
+          <div class="s">Hortifrut S.A. a la CMF · Diario Financiero, marzo de 2026</div>
+        </div>
+        <div class="ev">
+          <div class="d num">27 mayo 2026</div>
+          <div class="t">Guadalajara: la dirección mexicana lleva la conversación al consumidor</div>
+          <div class="x">En el XLI Seminario Internacional Blueberries México, Rigoberto Guerrero plantea que la diferenciación del origen mexicano debe construirse sobre la experiencia del consumidor: sabor, firmeza, calibre y calidad como atributos que sostienen la recompra.</div>
+          <div class="s">Blueberries Consulting, 27 de mayo de 2026</div>
+        </div>
+        <div class="ev key">
+          <div class="d num">1 julio 2026</div>
+          <div class="t">La oferta a México se articula como genética más red</div>
+          <div class="x">Hortifrut se presenta en México como socio estratégico del productor: genética, transferencia de conocimiento e infraestructura tecnológica, con canal propio de atención a productores. Guerrero reporta 30 millones de kilos de frambuesa manejados.</div>
+          <div class="s">Portal Frutícola, publirreportaje, 1 de julio de 2026</div>
+        </div>
+        <div class="ev">
+          <div class="d num">30 julio 2026</div>
+          <div class="t">Ampliación de la plataforma genética con Naturipe y MBO</div>
+          <div class="x">Hortifrut y Naturipe amplían su plataforma genética mediante colaboración con MBO. El acuerdo da a Hortifrut acceso a nuevas selecciones élite de arándano para Estados Unidos, México, Perú y otros países de Latinoamérica.</div>
+          <div class="s">Hortifrut, comunicado del 30 de julio de 2026</div>
+        </div>
+      </div>
+
+      <div class="tab imp">
+        <span class="lab">Implicación</span>
+        <h4>La línea de tiempo tiene una dirección y es consistente</h4>
+        <p>
+          De 2023 a 2026 cada movimiento empuja al mismo lado: menos peso del activo agrícola propio, más peso de
+          la genética, de la plataforma comercial y del productor asociado. Es una estrategia coherente. También
+          significa que la capacidad crítica de México en 2027 no será agronómica sino de administración de red —
+          y es la única pieza del tablero que no tiene evidencia pública de cómo se está construyendo.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 05 LA RED DE PRODUCTORES ============================= -->
+<section id="s5" class="view" aria-label="Sección 5">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">La red de productores</h1>
+    <p class="eyebrow"><span class="num">05</span> La red de productores</p>
+    <h2 class="sec">Qué cambia cuando el volumen nace en tierra que no administras</h2>
+    <p class="lede">
+      Hortifrut México opera desde 1994 con frambuesa y arándano en Michoacán y Jalisco, y exporta mora captada de
+      productores terceros. Después de 2025 ese equilibrio se inclina. La compañía usa una expresión propia para
+      describirlo: productores integrados a la red de Hortifrut.
+    </p>
+
+    <div class="body">
+      <div class="g3">
+        <div class="stat mint">
+          <div class="v num">1994</div>
+          <div class="l">Año de inicio de Hortifrut México</div>
+          <div class="s">investor.hortifrut.com</div>
+        </div>
+        <div class="stat cream">
+          <div class="v num">3</div>
+          <div class="l">Berries declaradas desde México: frambuesa y arándano de cultivo, mora captada de terceros</div>
+          <div class="s">investor.hortifrut.com · octubre 2026</div>
+        </div>
+        <div class="stat dark">
+          <div class="v num">~60<sup>%</sup></div>
+          <div class="l">Del valor nacional de frambuesa lo aporta Jalisco, donde está la sede mexicana de Hortifrut</div>
+          <div class="s">Magazine Fitosanitaria · junio 2026</div>
+        </div>
+      </div>
+
+      <h3 class="sub">Las tres palancas que Hortifrut controla sobre la red, y lo que cada una no alcanza</h3>
+      <div class="g3">
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Genética</h4>
+          <p>
+            Centennial, RubyChic® y Fenomenal se licencian al productor. Guerrero describe Centennial como la
+            variedad más rústica del portafolio y la número uno de la casa. Fenomenal, con cañas sin espinas,
+            reduce el costo operativo del trabajador en cosecha.
+          </p>
+          <p class="src">La genética define el techo de productividad del huerto. No define cómo se ejecuta la cuadrilla que lo cosecha.</p>
+        </div>
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Mercado</h4>
+          <p>
+            Sweet Selections®, creada con Naturipe, funciona como plataforma de diferenciación en el anaquel
+            estadounidense y permite al productor integrado acceder a un portafolio comercial premium.
+          </p>
+          <p class="src">El sello premia la fruta que llega bien. No explica, por sí solo, por qué un lote llegó mal.</p>
+        </div>
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>Transferencia técnica</h4>
+          <p>
+            La compañía declara soporte de transferencia de conocimiento e infraestructura tecnológica, con canal
+            de contacto dedicado a productores en México.
+          </p>
+          <p class="src">La transferencia sube el piso técnico. La pregunta abierta es con qué indicador se verifica el efecto, productor por productor.</p>
+        </div>
+      </div>
+
+      <div class="hf-split">
+        <div class="a">
+          <h5>La frase de la compañía</h5>
+          <p>
+            «Esto permite a los productores integrados a la red de Hortifrut acceder a un portafolio comercial
+            diferenciado, escapando del <i>commodity</i>.»
+          </p>
+          <p class="small" style="margin-top:12px">Portal Frutícola · 1 de julio de 2026</p>
+        </div>
+        <div class="b">
+          <h5>Por qué importa la palabra red</h5>
+          <p>
+            No dice proveedores ni maquila. Dice red integrada. Una red integrada implica compromiso recíproco:
+            el productor adopta la genética y el estándar, Hortifrut coloca y respalda. Ese contrato implícito
+            funciona mientras ambas partes vean lo mismo.
+          </p>
+          <p>
+            En 2027 lo que ambas partes tienen que ver incluye, por ley, el registro de jornada de cada persona
+            que entra al surco. Eso no era parte del contrato cuando la red se construyó.
+          </p>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Limitación declarada.</b> No existe cifra pública verificable del número de productores asociados a
+        Hortifrut en México, de sus hectáreas bajo programa, ni del porcentaje del volumen mexicano que proviene
+        de terceros frente a cultivo propio. La compañía no desagrega México en su reporte a la CMF. Este análisis
+        no estima esas cifras y la sección 10 propone cómo resolverlas en dos horas de trabajo con su equipo.
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 06 FORZADORES CON FECHA ============================= -->
+<section id="s6" class="view" aria-label="Sección 6">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Forzadores con fecha</h1>
+    <p class="eyebrow"><span class="num">06</span> Forzadores con fecha</p>
+    <h2 class="sec">Cuatro cambios con calendario publicado que caen sobre la red, no sobre el corporativo</h2>
+    <p class="lede">
+      Ninguno de estos cuatro es opinión. Los cuatro están en el Diario Oficial de la Federación o en estadística
+      oficial, los cuatro tienen fecha, y los cuatro se materializan en el eslabón donde Hortifrut tiene influencia
+      pero no control directo: el productor y su cuadrilla.
+    </p>
+
+    <div class="body">
+      <div class="hf-gate">
+        <div class="g live">
+          <div class="dt">1 OCT 2026<small>Ya vigente</small></div>
+          <div>
+            <h5>Certificado Laboral para la Agroexportación, obligatorio en aguacate</h5>
+            <p>
+              Desde el 1 de octubre de 2026 es obligatorio contar con el CLA para vender aguacate mexicano en el
+              extranjero. Es una regulación no arancelaria y debe declararse en el pedimento al momento del
+              despacho aduanero. Se tramita en la plataforma VELAGRO y acredita cumplimiento de obligaciones
+              laborales y de seguridad social ante el IMSS. El marco deriva del artículo 283 Quáter de la Ley
+              Federal del Trabajo. El acuerdo técnico del 15 de septiembre de 2026 alcanza expresamente a la
+              empresa de corte, es decir a quien ejecuta corte y selección preliminar mediante cuadrillas.
+              <b>La STPS anunció que el esquema se extenderá gradualmente a otros productos, entre ellos las berries.</b>
+            </p>
+            <p class="src">DOF, 1 de octubre de 2026 · Acuerdo técnico DOF, 15 de septiembre de 2026 · Disposiciones generales del CLA, 15 de junio de 2026</p>
+          </div>
+        </div>
+        <div class="g soon">
+          <div class="dt">1 ENE 2027<small>En 88 días</small></div>
+          <div>
+            <h5>Jornada de 46 horas y registro electrónico de jornada exigible</h5>
+            <p>
+              El decreto publicado en el DOF el 1 de mayo de 2026 reduce la jornada máxima de 48 a 40 horas entre
+              2026 y 2030, sin disminución de salario. El primer escalón es 46 horas desde el 1 de enero de 2027.
+              Ese mismo día entran en vigor las disposiciones generales de la STPS sobre el registro electrónico
+              de jornada, previsto en el artículo 132 fracción XXXIV de la LFT, con sanciones de 250 a 5,000 UMAs.
+              No distingue por tamaño de empresa ni por sector.
+            </p>
+            <p class="src">DOF, 3 de marzo de 2026, reforma al artículo 123 constitucional · DOF, 1 de mayo de 2026, decreto de reforma a la LFT, transitorios segundo y quinto</p>
+          </div>
+        </div>
+        <div class="g">
+          <div class="dt">1 ENE 2026<small>Vigente</small></div>
+          <div>
+            <h5>Salario mínimo profesional del jornalero agrícola</h5>
+            <p>
+              La resolución de la CONASAMI vigente desde el 1 de enero de 2026 fija el salario mínimo general en
+              315.04 pesos diarios en la Zona del Salario Mínimo General, que es la que aplica a Jalisco y
+              Michoacán. Pero el jornalero agrícola es la categoría 31 del tabulador de salarios mínimos
+              profesionales, con <b>356.16 pesos diarios</b> en esa misma zona. Es la referencia correcta para
+              costear cosecha en berries, y es 13% mayor al mínimo general.
+            </p>
+            <p class="src">Resolución CONASAMI publicada en el DOF el 9 de diciembre de 2025, vigente desde el 1 de enero de 2026</p>
+          </div>
+        </div>
+        <div class="g">
+          <div class="dt">DIC 2025<small>Reglamento pendiente</small></div>
+          <div>
+            <h5>Ley General de Aguas y reformas a la Ley de Aguas Nacionales</h5>
+            <p>
+              El Congreso aprobó en diciembre de 2025 la nueva Ley General de Aguas junto con reformas a la Ley de
+              Aguas Nacionales. Elimina la compraventa de concesiones entre particulares, ata la concesión
+              agropecuaria a la tierra, crea un Registro Público Nacional de Agua y refuerza la rectoría de
+              Conagua sobre la reasignación. El reglamento que definirá asignación y reglas operativas seguía en
+              elaboración en marzo de 2026, con los productores buscando participar.
+            </p>
+            <p class="src">Cámara de Diputados y Senado, diciembre de 2025 · Luz Noticias, 9 de marzo de 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub">Y un quinto que no es norma, pero sí es dato oficial</h3>
+      <div class="g2">
+        <div class="tab hecho">
+          <span class="lab">Hecho</span>
+          <h4>La extorsión creció 52.8% en Michoacán entre enero y julio de 2026</h4>
+          <p>
+            Las bases municipales del Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública registran
+            ese incremento en los primeros siete meses de 2026. El informe oficial identifica a Michoacán como el
+            principal estado agroexportador del país, con relevancia nacional en berries. La respuesta federal es
+            el refuerzo del Plan Michoacán.
+          </p>
+          <p class="src">SESNSP vía Vanguardia, 17 de septiembre de 2026 · conferencia presidencial, 11 de agosto de 2026</p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Implicación</span>
+          <h4>Para una red de terceros esto no es contexto, es variable de abasto</h4>
+          <p>
+            Cuando el volumen viene de campos propios, el riesgo territorial es un problema de seguridad
+            patrimonial. Cuando viene de una red de productores independientes, se convierte además en riesgo de
+            continuidad de abasto por zona: un productor presionado reduce, retrasa o deja de entregar, y eso
+            aparece en el programa de embarque antes que en cualquier reporte.
+          </p>
+          <p class="src">Esta es una implicación del análisis, no un hecho verificado sobre la operación de Hortifrut ni sobre ningún productor en particular.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Lo que une a los cinco</h4>
+        <p>
+          Ninguno le pega primero al corporativo. <b>Todos le pegan primero al productor, y llegan a Hortifrut como
+          un embarque que no sale, un costo por kilo que subió o un lote que no se puede acreditar.</b> Esa es la
+          definición operativa de la tesis: la exposición se movió al eslabón que no está en la nómina.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 07 BENCHMARK ============================= -->
+<section id="s7" class="view" aria-label="Sección 7">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Benchmark competitivo</h1>
+    <p class="eyebrow"><span class="num">07</span> Benchmark competitivo</p>
+    <h2 class="sec">Los cinco del panel de Guadalajara, leídos con las variables de esta tesis</h2>
+    <p class="lede">
+      El comparable no lo elegimos nosotros: lo eligió la industria. El 27 de mayo de 2026, en el XLI Seminario
+      Internacional Blueberries México, cinco empresas compartieron mesa. Las variables sí las definimos antes
+      que las empresas, y salen de la tesis: quién depende de terceros, quién controla genética, quién coloca
+      directo y quién queda más expuesto al nuevo marco laboral.
+    </p>
+
+    <div class="body">
+      <div class="tw">
+        <table>
+          <thead>
+            <tr>
+              <th>Actor en México</th>
+              <th>Modelo de abasto declarado</th>
+              <th>Genética propia</th>
+              <th>Plataforma comercial en destino</th>
+              <th>Exposición a la certificación laboral de terceros</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="me">
+              <td>Hortifrut México</td>
+              <td>Mixto: cultivo propio de frambuesa y arándano en Michoacán y Jalisco, más mora captada de terceros. Cierre de operaciones agrícolas en el 1T de 2025</td>
+              <td>Sí. Hortifrut Genetics, con pipeline propio y licencia a productores</td>
+              <td>Sí. Naturipe, Euroberry y Asian Berries, más el sello Sweet Selections®</td>
+              <td>Alta y creciente, por el giro hacia el productor asociado</td>
+            </tr>
+            <tr>
+              <td>Driscoll's México</td>
+              <td>Red de productores independientes. La compañía vende planta, asesora y compra fruta; el productor ejecuta el manejo</td>
+              <td>Sí. Programa de mejoramiento propio, históricamente su eje</td>
+              <td>Sí. Marca Driscoll's directo a retail en más de 40 países</td>
+              <td>Estructuralmente alta: su modelo es terceros desde el origen</td>
+            </tr>
+            <tr>
+              <td>Agrovision México</td>
+              <td>Integración vertical con campos propios y control de toda la cadena de valor, según declaraciones de su cofundador</td>
+              <td>Acceso a genéticas premium licenciadas</td>
+              <td>Sí, con foco declarado en la experiencia del consumidor en el pasillo</td>
+              <td>Menor por diseño: a más nómina propia, menos dependencia de terceros</td>
+            </tr>
+            <tr>
+              <td>Berries Paradise</td>
+              <td class="nd">Información pública no identificada</td>
+              <td class="nd">Información pública no identificada</td>
+              <td class="nd">Información pública no identificada</td>
+              <td class="nd">Información pública no identificada</td>
+            </tr>
+            <tr>
+              <td>North Bay Produce</td>
+              <td>Cooperativa de productores: la propiedad está en los productores miembros</td>
+              <td class="nd">Información pública no identificada</td>
+              <td>Sí, como comercializadora de sus propios miembros</td>
+              <td>Alta, aunque mediada por la figura cooperativa</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scrollhint">Desliza la tabla horizontalmente para ver todas las columnas.</p>
+      <p class="cap">
+        Elaboración propia a partir de la nota de Blueberries Consulting sobre el panel del 27 de mayo de 2026 y
+        de declaraciones públicas de cada compañía. Cuatro celdas quedan en blanco porque no encontramos fuente
+        pública confiable; preferimos dejarlas vacías antes que estimarlas.
+      </p>
+
+      <div class="plot" aria-label="Cuadrante cualitativo de dependencia de terceros frente a control genético">
+        <div class="axY"><span>Alto control genético</span><span>Bajo</span></div>
+        <div class="field">
+          <div class="bub me" style="left:72%;bottom:78%;width:116px;height:116px">Hortifrut<br>México</div>
+          <div class="bub a" style="left:88%;bottom:72%;width:94px;height:94px">Driscoll's<br>México</div>
+          <div class="bub b" style="left:28%;bottom:58%;width:84px;height:84px">Agrovision<br>México</div>
+          <div class="bub c" style="left:80%;bottom:26%;width:82px;height:82px">North Bay<br>Produce</div>
+          <div class="bub d" style="left:46%;bottom:30%;width:76px;height:76px">Berries<br>Paradise</div>
+        </div>
+        <div class="axX"><span>Producción propia</span><span>Red de terceros</span></div>
+      </div>
+      <p class="cap">
+        <b>Ubicación cualitativa derivada de las variables del análisis, no un scoring numérico.</b> Las posiciones
+        reflejan el modelo declarado públicamente por cada compañía, no una medición de superficie, volumen ni
+        participación. Berries Paradise aparece con posición tentativa por ausencia de información pública
+        suficiente.
+      </p>
+
+      <div class="callout">
+        <h4>La lectura</h4>
+        <p>
+          El cuadrante superior derecho —mucha genética propia y mucha red de terceros— es el de mayor
+          apalancamiento comercial y el de mayor superficie regulatoria. Hortifrut y Driscoll's comparten ese
+          cuadrante, pero llegaron por caminos opuestos: <b>Driscoll's construyó el aparato de administración de
+          productores desde el origen de su modelo; Hortifrut llega a la misma posición desde la integración
+          vertical, en un reordenamiento que arrancó en 2025.</b> La ventaja de Hortifrut es que su giro es
+          deliberado y reciente, y puede diseñar ese aparato ya sabiendo qué va a exigir la norma de 2027, en vez
+          de retroadaptar uno construido para otra época.
+        </p>
+      </div>
+
+      <div class="tab senal">
+        <span class="lab">Señal</span>
+        <h4>La propia industria nombró el indicador faltante en esa misma mesa</h4>
+        <p>
+          En el panel de Guadalajara, el director de finanzas de North Bay Produce sostuvo que volumen por planta,
+          costo por kilo, retorno obtenido y desempeño por genética son datos que todo productor de arándano
+          necesita conocer para decidir mejor. No lo dijo un consultor: lo dijo un competidor, en una mesa donde
+          estaba Hortifrut. Es la descripción exacta de la capa de medición que esta tesis sitúa en la red.
+        </p>
+        <p class="src">Blueberries Consulting, 27 de mayo de 2026, XLI Seminario Internacional Blueberries México, Guadalajara.</p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 08 IMPLICACIONES DE EJECUCIÓN ============================= -->
+<section id="s8" class="view" aria-label="Sección 8">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Implicaciones de ejecución</h1>
+    <p class="eyebrow"><span class="num">08</span> Implicaciones de ejecución</p>
+    <h2 class="sec">Cinco consecuencias operativas de administrar una red que no está en tu nómina</h2>
+    <p class="lede">
+      Si la tesis es correcta, estas cinco cosas se vuelven trabajo concreto en los próximos dieciocho meses.
+      Cada una está formulada como consecuencia de un hecho de las secciones anteriores, no como diagnóstico de
+      la operación actual, que no conocemos.
+    </p>
+
+    <div class="body">
+      <div class="g2">
+        <div class="tab imp">
+          <span class="lab">Implicación 01</span>
+          <h4>El padrón de productores deja de ser un directorio y pasa a ser un control</h4>
+          <p>
+            Si el CLA llega a berries con la mecánica del aguacate, el certificado se declara en el pedimento. Eso
+            convierte el estatus laboral de cada productor y cada empresa de corte en un requisito de salida de
+            la caja, con fecha de vencimiento y ventana de renovación. Un padrón que hoy sirva para programar
+            volumen tendrá que servir también para bloquear embarque.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Implicación 02</span>
+          <h4>El costo de cosecha necesita resolución por variedad y por productor</h4>
+          <p>
+            Con jornada bajando dos horas cada año a partir de 2027 y el jornalero agrícola en 356.16 pesos
+            diarios, el costo de mano de obra por kilo deja de ser un promedio útil. Fenomenal sin espinas y
+            RubyChic® con intervalo de cosecha más corto deberían tener efecto medible en ese costo; hoy no hay
+            forma pública de saber si ese efecto se está capturando o se está diluyendo en el promedio.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Implicación 03</span>
+          <h4>La promesa de sabor necesita trazabilidad hasta el lote</h4>
+          <p>
+            Si la diferenciación del origen mexicano se construye sobre la experiencia del consumidor, como
+            planteó la dirección en Guadalajara, entonces un reclamo de condición en destino tiene que poder
+            regresar al huerto, a la fecha de corte y a la cuadrilla. Sweet Selections® promete consistencia; la
+            consistencia se audita hacia atrás o no se sostiene.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Implicación 04</span>
+          <h4>El riesgo territorial entra a la planeación de abasto</h4>
+          <p>
+            Con la extorsión al alza en Michoacán y una red de productores independientes, la continuidad de
+            abasto por zona se vuelve una variable de planeación, no solo de seguridad. El plan de embarque
+            necesita saber qué porcentaje del volumen de una semana depende de un municipio concreto.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Implicación 05</span>
+          <h4>El agua pasa de supuesto a condición del contrato con el productor</h4>
+          <p>
+            Con la concesión atada a la tierra y sin transmisión entre particulares, la situación hídrica de cada
+            productor se vuelve parte de la evaluación de permanencia en la red, y parte del riesgo de una
+            inversión varietal a cinco o siete años. El reglamento sigue en elaboración, así que la ventana para
+            levantar ese mapa es ahora.
+          </p>
+        </div>
+        <div class="tab senal">
+          <span class="lab">Señal</span>
+          <h4>Las cinco comparten la misma materia prima</h4>
+          <p>
+            Padrón, costo de cosecha, trazabilidad de lote, exposición por municipio y situación hídrica son cinco
+            preguntas distintas que se responden con el mismo tipo de dato: información del productor, estructurada
+            y comparable entre productores. Esa es la razón por la que esta pieza propone empezar por medir y no
+            por tecnología.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 09 IA Y AGENTES ============================= -->
+<section id="s9" class="view" aria-label="Sección 9">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">IA y agentes</h1>
+    <p class="eyebrow"><span class="num">09</span> IA y agentes</p>
+    <h2 class="sec">Seis decisiones repetitivas de la red que hoy se toman con información dispersa</h2>
+    <p class="lede">
+      La genética no se toca y el criterio agronómico del productor tampoco: ahí está el valor del modelo y
+      ninguna máquina lo sustituye. Lo que sí se puede automatizar es todo lo que ocurre alrededor de la planta —
+      el papeleo, el cruce, la alerta y la comparación entre productores que hoy alguien hace a mano o no hace.
+    </p>
+
+    <div class="body">
+      <div class="console">
+        <div class="console-top">
+          <span class="tag">Casos de uso · red de productores</span>
+          <span class="live"><i></i>Seis agentes</span>
+        </div>
+        <div class="console-body">
+          <div class="agent-list" id="agentList" role="tablist" aria-label="Agentes propuestos"></div>
+          <div class="agent-detail" id="agentDetail"></div>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="tab hip">
+          <span class="lab">Cómo leer esta sección</span>
+          <h4>Sin promesa de retorno</h4>
+          <p>
+            Ninguno de los seis casos lleva cifra de impacto, porque no tenemos la base para calcularla y
+            prometerla sería faltarle al respeto a un equipo que sí conoce sus números. Cada caso declara en
+            cambio su condición previa de datos: qué información tendría que existir, limpia y consistente, para
+            que funcione. Normalmente es ahí donde se rompe.
+          </p>
+        </div>
+        <div class="tab imp">
+          <span class="lab">Orden de arranque</span>
+          <h4>Primero medir, después automatizar</h4>
+          <p>
+            Los seis descansan sobre el mismo cimiento: un padrón de productores con identificador único y un
+            histórico comparable de al menos dos temporadas. Sin eso, el agente más sofisticado produce un tablero
+            bonito con datos que nadie reconoce. Con eso, el primero de los seis se puede pilotear en una sola
+            zona antes de que el CLA llegue a berries.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 10 DATOS Y BIFURCACIONES ============================= -->
+<section id="s10" class="view" aria-label="Sección 10">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Datos y bifurcaciones</h1>
+    <p class="eyebrow"><span class="num">10</span> Datos y bifurcaciones</p>
+    <h2 class="sec">Tres preguntas que no se pueden responder desde fuera y cambian el alcance del trabajo</h2>
+    <p class="lede">
+      Hay cosas que ninguna fuente pública va a contestar y que, sin embargo, deciden si un proyecto dura ocho
+      semanas o veinte. En vez de suponerlas, las dejamos planteadas como bifurcación: qué trabajo corresponde a
+      cada respuesta posible. Determinar en cuál está su operación es la primera parada del estudio de factibilidad.
+    </p>
+
+    <div class="body">
+      <div class="g3">
+        <div class="bif">
+          <h4>Dónde vive hoy el dato del productor</h4>
+          <p class="q">Sabemos que el corporativo opera SAP y estandarizó planeación con SAP IBP. Lo que no se puede saber desde fuera es si el productor asociado mexicano existe dentro de ese sistema o en un universo paralelo.</p>
+          <div class="opts">
+            <div class="opt a"><b>Escenario A · Integrado</b>El productor, sus lotes y sus entregas ya viven en el ERP con identificador único. El trabajo es explotación: construir los indicadores de red sobre datos que ya están, y el arranque es rápido.</div>
+            <div class="opt b"><b>Escenario B · Conviviendo</b>El corporativo tiene SAP y el campo mexicano opera con hojas de cálculo, sistemas de empaque y aplicaciones de captura que no se hablan. El trabajo empieza por integración y por eliminar doble captura, y ese paso es el que libera todo lo demás.</div>
+          </div>
+        </div>
+        <div class="bif">
+          <h4>Quién controla hoy la cuadrilla de corte</h4>
+          <p class="q">El acuerdo técnico del CLA distingue expresamente a la empresa de corte. La figura cambia por completo quién tramita, quién responde y a quién hay que acreditar.</p>
+          <div class="opts">
+            <div class="opt a"><b>Escenario A · El productor</b>Cada productor contrata y da de alta a su gente. Hortifrut necesita visibilidad y un mecanismo de verificación por productor, pero no asume la obligación directa.</div>
+            <div class="opt b"><b>Escenario B · Contratista de corte</b>Interviene un tercero que mueve cuadrillas entre huertos. Entonces la unidad a acreditar no es el productor sino la cuadrilla, y la trazabilidad tiene que seguir a la gente, no a la parcela.</div>
+          </div>
+        </div>
+        <div class="bif">
+          <h4>Qué quedó después del cierre de campos</h4>
+          <p class="q">La compañía informó el cierre de algunas operaciones agrícolas en México en el 1T de 2025, sin detallar cuáles ni cuántas. La mezcla resultante entre cultivo propio y red define dónde está el margen de maniobra.</p>
+          <div class="opts">
+            <div class="opt a"><b>Escenario A · Base propia relevante</b>Queda superficie propia suficiente para pilotear estándares, medir con control y después transferirlos a la red como práctica probada. Es el camino de menor fricción.</div>
+            <div class="opt b"><b>Escenario B · Mayoritariamente red</b>El volumen depende sustancialmente de terceros. Entonces el estándar se diseña desde el inicio como propuesta de valor al productor, no como requisito, porque no hay forma de imponerlo.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>Por qué esto no es una laguna de investigación</h4>
+        <p>
+          Las tres preguntas se resuelven en una sesión de dos horas con su equipo de sistemas, su gerencia de
+          campo y su área de recursos humanos. <b>Lo que importa es que ya sabemos qué hacer con cada una de las
+          seis respuestas posibles</b>, y por eso el alcance del estudio de factibilidad se puede cerrar en la
+          primera semana en vez de descubrirse en la sexta.
+        </p>
+      </div>
+
+      <div class="note">
+        <b>Nota de método.</b> Las seis descripciones de escenario son construcciones de LCG a partir de modelos
+        operativos comunes en agroexportación mexicana. No afirman nada sobre la operación real de Hortifrut
+        México, que no conocemos.
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 11 HIPÓTESIS ============================= -->
+<section id="s11" class="view" aria-label="Sección 11">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Hipótesis</h1>
+    <p class="eyebrow"><span class="num">11</span> Hipótesis</p>
+    <h2 class="sec">Seis hipótesis escritas para poder ser refutadas</h2>
+    <p class="lede">
+      Cada una indica qué indicador la pone a prueba, qué información haría falta y qué área tendría que
+      participar. Ninguna lleva impacto cuantificado: con información pública no hay base para hacerlo, y
+      ponerle un número inventado al impacto es la forma más rápida de perder la conversación.
+    </p>
+
+    <div class="body">
+      <div class="g2">
+        <div class="hyp">
+          <div class="hd"><span class="id num">H1</span><h4>El estatus de cumplimiento laboral de la red no es visible en un solo lugar ni en tiempo útil</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Porcentaje de productores y empresas de corte con expediente laboral completo y vigente, y días de anticipación con que se detecta un vencimiento.</dd>
+            <dt>Información necesaria</dt><dd>Padrón de productores con identificador único, altas IMSS asociadas y calendario de embarque por semana.</dd>
+            <dt>Área involucrada</dt><dd>Recursos Humanos, Legal, Compliance, Supply Chain.</dd>
+            <dt>Cómo se refuta</dt><dd>Mostrando la vista única que hoy usa el equipo para decidir si un embarque sale.</dd>
+          </dl>
+        </div>
+        <div class="hyp">
+          <div class="hd"><span class="id num">H2</span><h4>El costo de cosecha no se conoce con resolución por variedad y por productor</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Costo de mano de obra por kilo cosechado, abierto por variedad, zona y productor, y su dispersión entre productores comparables.</dd>
+            <dt>Información necesaria</dt><dd>Registro de jornales y rendimiento por lote, al menos dos temporadas, con criterio homogéneo.</dd>
+            <dt>Área involucrada</dt><dd>Operaciones Agrícolas, Finanzas, Costos.</dd>
+            <dt>Cómo se refuta</dt><dd>Enseñando el reporte que hoy compara ese costo entre dos productores de la misma zona y variedad.</dd>
+          </dl>
+        </div>
+        <div class="hyp">
+          <div class="hd"><span class="id num">H3</span><h4>El beneficio agronómico de las variedades propias no se está capturando en costo operativo</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Kilos por jornal y costo por kilo en Fenomenal frente a zarzamora con espinas; e intervalo real de cosecha en RubyChic® frente a frambuesa de referencia.</dd>
+            <dt>Información necesaria</dt><dd>Productividad de cuadrilla por variedad y lote, con la misma metodología de medición en los productores comparados.</dd>
+            <dt>Área involucrada</dt><dd>Genética, Operaciones Agrícolas, Desarrollo de Productores.</dd>
+            <dt>Cómo se refuta</dt><dd>Con la medición existente que sostiene hoy el argumento comercial de esas variedades ante el productor.</dd>
+          </dl>
+        </div>
+        <div class="hyp">
+          <div class="hd"><span class="id num">H4</span><h4>Un reclamo de condición en destino no regresa de forma sistemática al huerto y a la cuadrilla</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Tiempo entre el reclamo del cliente y la identificación del lote, el productor y la fecha de corte asociados; porcentaje de reclamos que cierran con causa raíz atribuida.</dd>
+            <dt>Información necesaria</dt><dd>Trazabilidad de lote desde recepción hasta destino y bitácora de condición en recepción.</dd>
+            <dt>Área involucrada</dt><dd>Calidad, Supply Chain, Comercial.</dd>
+            <dt>Cómo se refuta</dt><dd>Siguiendo un reclamo real de la última temporada hasta su cierre documentado.</dd>
+          </dl>
+        </div>
+        <div class="hyp">
+          <div class="hd"><span class="id num">H5</span><h4>La concentración de abasto por municipio no se usa como variable de planeación</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Porcentaje del volumen semanal que depende de un solo municipio o de un solo productor, y existencia de plan alterno declarado por zona.</dd>
+            <dt>Información necesaria</dt><dd>Volumen histórico por productor y ubicación, cruzado con el programa comprometido con cliente.</dd>
+            <dt>Área involucrada</dt><dd>Supply Chain, Planeación, Dirección General.</dd>
+            <dt>Cómo se refuta</dt><dd>Con el análisis de concentración que hoy alimenta el compromiso de programa.</dd>
+          </dl>
+        </div>
+        <div class="hyp">
+          <div class="hd"><span class="id num">H6</span><h4>La permanencia del productor en la red se decide con criterio relacional más que con tablero</h4></div>
+          <dl>
+            <dt>Indicador a revisar</dt><dd>Existencia de un scorecard de productor que combine rendimiento, calidad, costo, cumplimiento laboral y situación hídrica, y frecuencia con que se revisa.</dd>
+            <dt>Información necesaria</dt><dd>Los cinco componentes anteriores en una misma base, por temporada.</dd>
+            <dt>Área involucrada</dt><dd>Desarrollo de Productores, Dirección General, Finanzas.</dd>
+            <dt>Cómo se refuta</dt><dd>Mostrando el tablero con el que se tomó la última decisión de alta o baja de un productor.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Sobre el tono de estas hipótesis.</b> Están escritas como ausencias posibles porque así se refutan
+        rápido. No son diagnóstico: son el guion de una conversación. Si cuatro de las seis resultan falsas, el
+        ejercicio sirvió igual, porque habremos encontrado en una hora dónde sí está la oportunidad.
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 12 PREDIAGNÓSTICO ============================= -->
+<section id="s12" class="view" aria-label="Sección 12">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Prediagnóstico</h1>
+    <p class="eyebrow"><span class="num">12</span> Prediagnóstico</p>
+    <h2 class="sec">El Estudio de Factibilidad: siete inputs y un entregable</h2>
+    <p class="lede">
+      Es el marco con el que London entra a cualquier cuenta. No cambia de cliente a cliente; lo que se ajusta
+      para Hortifrut es el alcance geográfico y el acceso: una o dos zonas productivas, la planta de proceso que
+      las atiende y una muestra de productores asociados, en dos a tres semanas.
+    </p>
+
+    <div class="body">
+      <div class="g2">
+        <div class="inp"><span class="no num">01</span><div><h4>Alcance y estrategia del estudio</h4><p>Entendimiento de los retos estratégicos, definición de alcance por áreas, responsables y ubicación geográfica, designación del <i>sponsor</i> del estudio y entendimiento del modelo de gobierno. En esta cuenta hay un punto específico: decidir si el alcance se levanta solo sobre Hortifrut México o incluye a una muestra representativa de productores asociados. Sin lo segundo, la tesis no se puede comprobar.</p></div></div>
+        <div class="inp"><span class="no num">02</span><div><h4>Recolección de información básica</h4><p>Firma de NDA, inducción general, organigramas, estados financieros, indicadores de juntas directivas y operativas, manuales de proceso o sistemas de calidad, y reunión de perfilamiento. Aquí se necesita acceso a bases de datos; para esta cuenta, las que importan son padrón de productores, entregas por lote, jornales y calidad en recepción. Sin ellas el ejercicio se queda en observación y pierde la mitad de su valor.</p></div></div>
+        <div class="inp"><span class="no num">03</span><div><h4>Comunicación y entrevistas</h4><p>Diseño y acuerdo del plan de entrevistas con apoyo del <i>sponsor</i>, <i>kick off</i> oficial con objetivos, alcance y factores clave de éxito, ejecución de entrevistas y reuniones de validación de oportunidades. Las entrevistas son el corazón del estudio: mandos medios, técnicos de campo y personal de empaque saben dónde está el problema mucho antes que cualquier reporte.</p></div></div>
+        <div class="inp"><span class="no num">04</span><div><h4>Gemba Walk</h4><p><i>Gemba</i> significa «el lugar real» en japonés: donde el trabajo ocurre y donde se genera el valor. Es un recorrido estructurado por huerto, recepción y empaque para observar el proceso donde sucede, no como lo describe un manual. Se observan tiempos de ciclo, puntos de espera, manejo de merma, condición al corte, y se pregunta a quien ejecuta la tarea, no a quien la supervisa. La distancia entre el proceso documentado y el real es, casi siempre, donde está el dinero.</p></div></div>
+        <div class="inp"><span class="no num">05</span><div><h4>Estadística agéntica</h4><p>Con las bases que comparte el cliente, se ejecutan estudios estadísticos apoyados en inteligencia artificial agéntica para identificar las principales áreas de oportunidad. Los agentes cruzan entregas, rendimiento, jornales, calidad y costo buscando patrones que no se ven revisando cada base por separado: dispersión de productividad entre productores comparables, correlación entre variedad y costo por kilo, comportamientos atípicos por zona.</p></div></div>
+        <div class="inp"><span class="no num">06</span><div><h4>Nivel de Madurez Organizacional</h4><p>Mide la capacidad de la empresa para la mejora continua. A mayor madurez, mayor eficiencia en calidad y en uso de recursos. Se evalúan tres dimensiones —personas y cultura, procesos y estructuras, y tecnología— con <i>benchmarks</i> operativos y financieros de empresas similares.</p></div></div>
+      </div>
+
+      <div class="tw" style="margin-top:4px">
+        <table>
+          <thead><tr><th>Nivel</th><th>Nombre</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td class="num">01</td><td>Inicial</td><td>Opera sin marco estructurado, con procesos esporádicos y resultados inconsistentes.</td></tr>
+            <tr><td class="num">02</td><td>Emergente</td><td>Reconoce la importancia de estandarizar, pero sin implementación consistente.</td></tr>
+            <tr><td class="num">03</td><td>Definido</td><td>Procesos estandarizados y documentados, aplicados con regularidad.</td></tr>
+            <tr><td class="num">04</td><td>Gestionado</td><td>Gestión basada en métricas y datos, con ajustes predictivos.</td></tr>
+            <tr><td class="num">05</td><td>Optimizado</td><td>Lidera en mejora continua e innovación, con alta adaptabilidad.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">El resultado no es una calificación: es el punto de partida contra el que se mide el avance del proyecto.</p>
+
+      <div class="inp"><span class="no num">07</span><div><h4>Growth Management</h4><p>Encuesta que mide la mentalidad y el <i>mindset</i> de los líderes, junto con los aspectos organizacionales clave para el éxito de una compañía. Evalúa once elementos agrupados en cuatro bloques, con 68 reactivos en total.</p></div></div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>Bloque</th><th>Reactivos</th><th>Peso</th><th>Qué mide</th></tr></thead>
+          <tbody>
+            <tr><td>Estrategia y objetivos</td><td class="num">16</td><td class="num">30%</td><td>Alineación y claridad entre objetivos individuales, de equipo y estrategia de la compañía, y efectividad de la estructura y los roles en el cumplimiento de metas.</td></tr>
+            <tr><td>Liderazgo y cultura</td><td class="num">19</td><td class="num">30%</td><td>Calidad del liderazgo y su impacto en el clima laboral, colaboración y compromiso, y capacidad de los líderes para fomentar un ambiente positivo.</td></tr>
+            <tr><td>Adaptabilidad y cambio</td><td class="num">16</td><td class="num">30%</td><td>Capacidad de la organización y sus líderes para adaptarse al cambio, fomentar la innovación y la mejora continua, y cómo los colaboradores adoptan los cambios.</td></tr>
+            <tr><td>Digitalización y eficiencia operativa</td><td class="num">17</td><td class="num">10%</td><td>Uso y adopción de herramientas digitales y tecnológicas para mejorar eficiencia y productividad, y su contribución al logro de objetivos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <h4>El entregable · Propuesta de proyecto</h4>
+        <p>
+          No es un input: es lo que se construye sobre los siete anteriores y las oportunidades identificadas
+          durante el prediagnóstico. Contiene oportunidades cuantificadas en pesos, beneficios esperados,
+          metodología de implementación, cronograma, inversión y ROI. <b>Si las oportunidades no justifican el
+          proyecto, se dice.</b> Ese también es un resultado válido del estudio.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 13 CASOS DE ÉXITO ============================= -->
+<section id="s13" class="view" aria-label="Sección 13">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Casos de éxito</h1>
+    <p class="eyebrow"><span class="num">13</span> Casos de éxito</p>
+    <h2 class="sec">Tres agroindustrias mexicanas, con cifra publicada y carta firmada</h2>
+    <p class="lede">
+      Los tres están publicados en londoncg.mx/growth-stories con caso de éxito y carta de recomendación
+      descargables, y dos de ellos con video del propio director. Las cifras son las que ahí aparecen, sin
+      redondeo ni reinterpretación. Elegimos estos tres por adyacencia de problema, no solo de sector.
+    </p>
+
+    <div class="body">
+      <div class="case">
+        <div class="top">
+          <div><div style="font-size:21px;font-weight:800;color:var(--green-800);letter-spacing:-0.02em">Agro Gonzámex</div><div class="small">Agribusiness · Growth Stories T1:E3 · «Harvesting a Legacy of Excellence»</div></div>
+          <div class="roi"><div class="v num">14.7<sup>:1</sup></div><div class="l">ROI publicado</div></div>
+        </div>
+        <div class="bd">
+          <p class="tx"><b>Por qué este caso y no otro.</b> El episodio documenta la aplicación de inteligencia de negocios en agroindustria para trazabilidad, predicción y análisis de datos agrícolas. Es, punto por punto, la capa que esta pieza sitúa como la restricción de la red: convertir dato de campo disperso en decisión comparable.</p>
+          <p class="tx" style="margin-top:12px">Ignacio González, Director Ejecutivo, recomienda a London «por su profesionalismo; así como la metodología de trabajo de punta, colaborativa, digital, con el cliente y el usuario al centro».</p>
+          <div class="acts">
+            <a class="btn p" href="https://www.youtube.com/watch?v=2uMH63ZIeZw" target="_blank" rel="noopener">Ver el video &#8599;</a>
+            <a class="btn" href="https://news.londoncg.com/hubfs/Growth%20Series%20LP/pdf/AGROGONZAMEX_OnePager.pdf" target="_blank" rel="noopener">Caso de éxito &#8599;</a>
+            <a class="btn" href="https://londoncg.mx/hubfs/Growth%20Series%20LP/clientes/cartas_de_recomendacion/Agro_Gonzamex.pdf" target="_blank" rel="noopener">Carta de recomendación &#8599;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="case">
+          <div class="top">
+            <div><div style="font-size:19px;font-weight:800;color:var(--green-800);letter-spacing:-0.02em">La Norteñita</div><div class="small">Agribusiness · Growth Stories T2:E3</div></div>
+            <div class="roi"><div class="v num" style="font-size:38px">2.7<sup>:1</sup></div><div class="l">ROI publicado</div></div>
+          </div>
+          <div class="bd">
+            <p class="tx" style="font-size:14.6px">«Cultivating a High-Performance Organization», con Luis Antonio Corral, Director General. El caso trabaja la dimensión organizacional de una agroindustria: desempeño, estructura y cultura. Es el frente que acompaña a cualquier cambio en cómo se administra una red, porque el estándar nuevo lo ejecutan personas que hoy trabajan de otra forma.</p>
+            <div class="acts">
+              <a class="btn p" href="https://youtu.be/AMGCGGIn-jc" target="_blank" rel="noopener">Ver el video &#8599;</a>
+              <a class="btn" href="https://news.londoncg.com/hubfs/Growth%20Series%20LP/pdf/La_Nortenita_OnePager.pdf" target="_blank" rel="noopener">Caso &#8599;</a>
+              <a class="btn" href="https://londoncg.mx/hubfs/Growth%20Series%20LP/clientes/cartas_de_recomendacion/La_Nortenita.pdf" target="_blank" rel="noopener">Carta &#8599;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="top">
+            <div><div style="font-size:19px;font-weight:800;color:var(--green-800);letter-spacing:-0.02em">El Cerezo</div><div class="small">Agribusiness · caso y carta publicados</div></div>
+            <div class="roi"><div class="v num" style="font-size:38px">6<sup>:1</sup></div><div class="l">ROI publicado</div></div>
+          </div>
+          <div class="bd">
+            <p class="tx" style="font-size:14.6px">José Luis Mariscal, CEO. Agroindustria mexicana de exportación con carta de recomendación firmada y caso de éxito publicado. Se incluye por adyacencia directa de operación: cultivo, empaque y mercado de exportación bajo la misma estructura de costos de mano de obra que enfrenta la red de berries.</p>
+            <div class="acts">
+              <a class="btn p" href="https://6914984.fs1.hubspotusercontent-na1.net/hubfs/6914984/Growth%20Series%20LP/clientes/casos_de_exito/CASO_DE_EXITO-GRUPO_EL_CEREZO.pdf" target="_blank" rel="noopener">Caso de éxito &#8599;</a>
+              <a class="btn" href="https://6914984.fs1.hubspotusercontent-na1.net/hubfs/6914984/Growth%20Series%20LP/clientes/cartas_de_recomendacion/El_Cerezo.pdf" target="_blank" rel="noopener">Carta &#8599;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="stat dark">
+          <div class="v num">1<sup>:1</sup></div>
+          <div class="l">ROI mínimo garantizado por contrato sobre la inversión del cliente</div>
+          <div class="s">Credencial London Consulting Group</div>
+        </div>
+        <div class="stat mint">
+          <div class="v num">5<sup>:1</sup></div>
+          <div class="l">Promedio histórico de retorno sobre la inversión en proyectos London</div>
+          <div class="s">Credencial London Consulting Group</div>
+        </div>
+        <div class="stat cream">
+          <div class="v num">1991</div>
+          <div class="l">Año de fundación. Operación en América Latina, el Caribe, Estados Unidos y Europa</div>
+          <div class="s">londoncg.com</div>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Nota de transparencia.</b> London tiene clientes publicados dentro de la industria de berries mexicana.
+        No los citamos en esta pieza y no los usamos como referencia, precisamente porque compiten con Hortifrut.
+        Todo lo que aparece en la sección 07 sobre cualquier competidor proviene exclusivamente de fuentes
+        públicas citadas en la sección 14.
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= 14 MÉTODO Y FUENTES ============================= -->
+<section id="s14" class="view" aria-label="Sección 14">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Método y fuentes</h1>
+    <p class="eyebrow"><span class="num">14</span> Método y fuentes</p>
+    <h2 class="sec">Cómo se construyó esto y qué no pudimos saber</h2>
+    <p class="lede">
+      Todo el documento se construyó con fuentes públicas entre el 3 y el 5 de octubre de 2026. Cada afirmación
+      está etiquetada. Las limitaciones están aquí, completas, porque un documento que las esconde no merece
+      confianza en el resto.
+    </p>
+
+    <div class="body">
+      <h3 class="sub">Clasificación de evidencia</h3>
+      <div class="legend">
+        <span class="chip hecho">Hecho</span>
+        <span class="chip senal">Señal</span>
+        <span class="chip hip">Hipótesis</span>
+        <span class="chip imp">Implicación</span>
+      </div>
+      <div class="g4">
+        <div class="tab hecho"><span class="lab">Hecho</span><p style="margin-top:0">Información respaldada por fuente identificable y fechada.</p></div>
+        <div class="tab senal"><span class="lab">Señal</span><p style="margin-top:0">Indicio de tendencia que por sí solo no demuestra una conclusión.</p></div>
+        <div class="tab hip"><span class="lab">Hipótesis</span><p style="margin-top:0">Interpretación estratégica derivada de los hechos. Refutable.</p></div>
+        <div class="tab imp"><span class="lab">Implicación</span><p style="margin-top:0">Qué podría significar esa hipótesis para el negocio.</p></div>
+      </div>
+
+      <h3 class="sub">Limitaciones declaradas</h3>
+      <div class="g2">
+        <div class="tab imp">
+          <span class="lab">Lo que no sabemos</span>
+          <h4>Cinco vacíos que no se pueden cerrar desde fuera</h4>
+          <p>
+            <b>Uno.</b> Hortifrut S.A. consolida a nivel global ante la CMF de Chile y no desagrega México: no hay
+            ingresos, EBITDA, margen ni headcount del país.<br>
+            <b>Dos.</b> No hay cifra pública de hectáreas propias, hectáreas bajo programa ni número de productores
+            asociados en México.<br>
+            <b>Tres.</b> La compañía informó el cierre de «algunas operaciones agrícolas en México» sin detallar
+            cuáles, cuántas ni en qué estado.<br>
+            <b>Cuatro.</b> No hay información pública sobre sistemas de gestión de la operación mexicana ni sobre
+            cómo se administra hoy el expediente laboral de la red.<br>
+            <b>Cinco.</b> La STPS anunció la extensión gradual del CLA a otros productos incluidas las berries,
+            pero al 5 de octubre de 2026 no existe acuerdo técnico publicado para berries con fecha cierta. El
+            riesgo es real; el calendario todavía no.
+          </p>
+        </div>
+        <div class="tab senal">
+          <span class="lab">Cautelas de lectura</span>
+          <h4>Tres advertencias sobre las fuentes usadas</h4>
+          <p>
+            El texto de Portal Frutícola del 1 de julio de 2026, del que provienen varias citas de la dirección
+            mexicana, está publicado como publirreportaje: es material pagado por la compañía. Lo usamos porque es
+            declaración directa y atribuible, no como análisis independiente.
+          </p>
+          <p>
+            Las cifras de la industria provienen de Aneberries en distintos momentos de 2025 y 2026 y no forman
+            una serie homogénea: cambian de base, de periodo y de criterio. Por eso no construimos una tendencia.
+          </p>
+          <p>
+            La referencia a SAP IBP proviene de un perfil profesional público, no de un documento corporativo:
+            la tratamos como señal de capacidad instalada, no como hecho auditado.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub">Fuentes consultadas</h3>
+      <div class="srcs">
+        <div><span class="id num">01</span><span>Hortifrut S.A., <i>Análisis Razonado de los estados financieros consolidados a diciembre de 2025</i>, presentado a la CMF de Chile. Deterioro de activos de 90.3 MUSD, EBITDA 184.2 MUSD, cierre de operaciones agrícolas en México en el 1T de 2025.<span class="m">investor.hortifrut.com</span></span></div>
+        <div><span class="id num">02</span><span>Diario Financiero, «Hortifrut pierde US$ 77 millones en 2025 por efecto contable y aumenta sus ingresos», marzo de 2026. Ingresos de 1,215 MUSD, +5.23%.<span class="m">df.cl</span></span></div>
+        <div><span class="id num">03</span><span>Diario Financiero, «Chilena Hortifrut cierra campos en México y realiza ajustes en Perú», 28 de noviembre de 2025.<span class="m">df.cl</span></span></div>
+        <div><span class="id num">04</span><span>Portal Frutícola, «Centennial, RubyChic® y Fenomenal: genética premium para productores mexicanos», publirreportaje, 1 de julio de 2026. Declaraciones de Rigoberto Guerrero y Ellen Thompson.<span class="m">portalfruticola.com/noticias/2026/07/01/hortifrut-genetica/</span></span></div>
+        <div><span class="id num">05</span><span>Blueberries Consulting, «México frente a sus competidores: calidad, sabor y eficiencia marcarán la próxima etapa del arándano», 27 de mayo de 2026. XLI Seminario Internacional Blueberries México, Guadalajara.<span class="m">blueberriesconsulting.com</span></span></div>
+        <div><span class="id num">06</span><span>Hortifrut S.A., comunicado «Naturipe Farms y Hortifrut amplían una de las plataformas de genética de berries más completas del mundo», 30 de julio de 2026.<span class="m">hortifrut.com</span></span></div>
+        <div><span class="id num">07</span><span>Hortifrut S.A., comunicado de designación de CEO, 4 de junio de 2024; e Informe de clasificación ICR, julio de 2025, sobre el acuerdo de actuación conjunta de abril de 2023.<span class="m">investor.hortifrut.com</span></span></div>
+        <div><span class="id num">08</span><span>Secretaría del Trabajo y Previsión Social, Acuerdo publicado en el DOF el 1 de octubre de 2026: Certificado Laboral para la Agroexportación obligatorio para aguacate, declarable en el pedimento, tramitado en VELAGRO. Artículo 283 Quáter de la Ley Federal del Trabajo.<span class="m">dof.gob.mx · velagro.stps.gob.mx</span></span></div>
+        <div><span class="id num">09</span><span>DOF, Acuerdo Técnico por el que se incorpora el aguacate como producto sujeto al CLA, 15 de septiembre de 2026; Disposiciones generales del CLA, 15 de junio de 2026.<span class="m">dof.gob.mx</span></span></div>
+        <div><span class="id num">10</span><span>DOF, reforma al artículo 123 constitucional, 3 de marzo de 2026; y decreto de reforma a la Ley Federal del Trabajo en materia de reducción de jornada, 1 de mayo de 2026. Transitorio segundo: 48 h en 2026, 46 en 2027, 44 en 2028, 42 en 2029, 40 en 2030. Transitorio quinto: registro electrónico exigible desde el 1 de enero de 2027.<span class="m">dof.gob.mx</span></span></div>
+        <div><span class="id num">11</span><span>Resolución del Consejo de Representantes de la CONASAMI, DOF 9 de diciembre de 2025. Salario mínimo general 315.04 pesos; jornalero agrícola, categoría 31 del tabulador profesional, 356.16 pesos en la Zona del Salario Mínimo General.<span class="m">conasami.gob.mx</span></span></div>
+        <div><span class="id num">12</span><span>Cámara de Diputados y Senado de la República, aprobación de la Ley General de Aguas y reformas a la Ley de Aguas Nacionales, diciembre de 2025. Reglamento en elaboración según Luz Noticias, 9 de marzo de 2026.<span class="m">canaldelcongreso.gob.mx · milenio.com</span></span></div>
+        <div><span class="id num">13</span><span>Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública, bases municipales: extorsión +52.8% en Michoacán, enero–julio de 2026, citado por Vanguardia el 17 de septiembre de 2026.<span class="m">sesnsp.gob.mx</span></span></div>
+        <div><span class="id num">14</span><span>Portal Frutícola, «Arándanos y frambuesas impulsan expansión de la producción de berries en México», 17 de marzo de 2026. Exportaciones 2025 de 700,500 t por 3,400 MUSD; proyección 2026 de 715,000 t.<span class="m">portalfruticola.com</span></span></div>
+        <div><span class="id num">15</span><span>Aneberries vía Chilealimentos, 6 de julio de 2026: frambuesa y zarzamora con crecimiento de volumen cercano a 20% y de valor de 10% en 2025/26; fresa &minus;17%; proyección 2026/27 de 5% a 8%.<span class="m">chilealimentos.com</span></span></div>
+        <div><span class="id num">16</span><span>Expansión, «México llega a la revisión agro del T-MEC con una caída de sus exportaciones a EU», 17 de junio de 2026, con datos del USDA. Primera caída anual en casi 30 años.<span class="m">expansion.mx</span></span></div>
+        <div><span class="id num">17</span><span>Expansión Política, «Agroexportadores de berries piden que las certificaciones no se conviertan en una carga burocrática», 21 de julio de 2026. Declaraciones de Juan Pablo Molina Baranzini, Aneberries.<span class="m">politica.expansion.mx</span></span></div>
+        <div><span class="id num">18</span><span>Hortifrut S.A., sección Compañía: inicio de Hortifrut México en 1994, cultivos de frambuesa y arándano en Michoacán y Jalisco, mora captada de productores terceros, plataformas Naturipe, Euroberry y Asian Berries.<span class="m">investor.hortifrut.com/compania/</span></span></div>
+        <div><span class="id num">19</span><span>London Consulting Group, Growth Stories: Agro Gonzámex 14.7:1, La Norteñita 2.7:1, El Cerezo 6:1, con caso de éxito y carta de recomendación publicados. Consultado el 5 de octubre de 2026.<span class="m">londoncg.mx/growth-stories</span></span></div>
+        <div><span class="id num">20</span><span>Magazine Fitosanitaria, «El segundo del mundo, el primero en calidad: el desafío de la frambuesa mexicana», junio de 2026. Jalisco aporta cerca del 60% del valor nacional de frambuesa.<span class="m">holaagro.umffaac.org.mx</span></span></div>
+      </div>
+
+      <div class="callout">
+        <h4>Qué haríamos distinto con acceso</h4>
+        <p>
+          Con un NDA y tres bases —padrón de productores, entregas por lote y jornales— esta pieza dejaría de ser
+          una hipótesis construida desde fuera y se convertiría en una medición. <b>Ese es exactamente el salto
+          que propone el estudio de factibilidad</b>, y es la razón por la que la conversación de 45 minutos
+          precede a cualquier propuesta.
+        </p>
+      </div>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<!-- ============================= CTA ============================= -->
+<section id="cta" class="view" aria-label="Siguiente paso">
+  <div class="bar"><div class="bar-in">
+    <button class="bar-btn" data-go="hub">&#8592; Índice</button>
+    <div class="bar-title"></div>
+    <div class="bar-nav">
+      <button class="bar-btn nav-prev" aria-label="Sección anterior">&#8592;</button>
+      <button class="bar-btn nav-next" aria-label="Sección siguiente">&#8594;</button>
+    </div>
+  </div></div>
+  <main>
+    <h1 class="sr">Siguiente paso</h1>
+    <p class="eyebrow"><span class="num">&#8594;</span> Siguiente paso</p>
+    <div class="body">
+      <div class="cta-wrap">
+        <h3>Cuarenta y cinco minutos para <b>contrastar seis hipótesis</b></h3>
+        <p>
+          Este documento se construyó sin hablar con ustedes. Esa es su limitación y también su propósito: llegar
+          con una tesis concreta en vez de con una presentación de capacidades. Queremos una conversación de 45
+          minutos con el equipo que ustedes decidan, para poner las seis hipótesis de la sección 11 frente a sus
+          números.
+        </p>
+        <p>
+          <b>Si cuatro de las seis están mal planteadas, esa información también nos sirve</b> y se las decimos en
+          la misma sesión. Si dos resisten, proponemos un estudio de factibilidad de dos a tres semanas sobre una
+          o dos zonas productivas. Y si las oportunidades no justifican un proyecto, London lo dice: también es un
+          resultado del estudio.
+        </p>
+        <div class="cta-acts">
+          <a class="btn" href="https://wa.me/523318628273?text=Hola%20Leonardo%2C%20vi%20el%20an%C3%A1lisis%20que%20prepararon%20para%20Hortifrut%20M%C3%A9xico.%20Me%20gustar%C3%ADa%20agendar%20los%2045%20minutos%20para%20contrastar%20las%20hip%C3%B3tesis." target="_blank" rel="noopener">Agendar por WhatsApp &#8599;</a>
+          <a class="btn s" href="mailto:leonardo.pimentel@londoncg.mx?subject=Hortifrut%20M%C3%A9xico%20%C2%B7%20contraste%20de%20hip%C3%B3tesis&amp;body=Hola%20Leonardo%2C">Escribir por correo</a>
+        </div>
+        <div class="sig">
+          <b>Leonardo Pimentel</b><br>
+          <span class="r">Director de Operaciones · London Consulting Group México</span><br>
+          <a href="tel:+523318628273">33 1862 8273</a> · <a href="mailto:leonardo.pimentel@londoncg.mx">leonardo.pimentel@londoncg.mx</a>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="stat cream">
+          <div class="v num">45<sup>min</sup></div>
+          <div class="l">Duración de la conversación propuesta. Sin material de venta: las seis hipótesis y sus números</div>
+          <div class="s">Primer paso</div>
+        </div>
+        <div class="stat mint">
+          <div class="v num">2–3</div>
+          <div class="l">Semanas del estudio de factibilidad, acotado a una o dos zonas productivas y una planta</div>
+          <div class="s">Segundo paso</div>
+        </div>
+        <div class="stat dark">
+          <div class="v num">1<sup>:1</sup></div>
+          <div class="l">Retorno mínimo garantizado por contrato si el proyecto procede. Promedio histórico de 5:1</div>
+          <div class="s">Tercer paso</div>
+        </div>
+      </div>
+
+      <p class="small" style="text-align:center;margin-top:10px">
+        Documento privado preparado por London Consulting Group México · Octubre de 2026 · Elaborado exclusivamente
+        con fuentes públicas
+      </p>
+    </div>
+    <div class="foot">
+      <button class="bar-btn" data-go="hub">&#8592; Volver al índice</button>
+      <button class="bar-btn nav-next foot-next"><span class="nx"></span> &#8594;</button>
+    </div>
+  </main>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  var ORDER = ["hub","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","cta"];
+  var NAMES = {
+    hub:["","Índice"],
+    s1:["01","La tesis"], s2:["02","Lo que ya está resuelto"], s3:["03","El mercado cambió"],
+    s4:["04","Hortifrut cambió"], s5:["05","La red de productores"], s6:["06","Forzadores con fecha"],
+    s7:["07","Benchmark competitivo"], s8:["08","Implicaciones de ejecución"], s9:["09","IA y agentes"],
+    s10:["10","Datos y bifurcaciones"], s11:["11","Hipótesis"], s12:["12","Prediagnóstico"],
+    s13:["13","Casos de éxito"], s14:["14","Método y fuentes"], cta:["→","Siguiente paso"]
+  };
+
+  function fill(){
+    ORDER.forEach(function(id){
+      if(id==="hub") return;
+      var sec=document.getElementById(id); if(!sec) return;
+      var i=ORDER.indexOf(id);
+      var prev=ORDER[i-1], next=ORDER[i+1];
+      var t=sec.querySelector(".bar-title");
+      if(t){ t.innerHTML='<span class="num">'+NAMES[id][0]+'</span><b>'+NAMES[id][1]+'</b>'; }
+      sec.querySelectorAll(".nav-prev").forEach(function(b){
+        if(prev){ b.dataset.go=prev; b.title="Anterior: "+NAMES[prev][1]; } else { b.disabled=true; }
+      });
+      sec.querySelectorAll(".nav-next").forEach(function(b){
+        if(next){ b.dataset.go=next; b.title="Siguiente: "+NAMES[next][1];
+          var s=b.querySelector(".nx"); if(s) s.textContent=NAMES[next][1];
+        } else {
+          if(b.classList.contains("foot-next")) b.style.display="none"; else b.disabled=true;
+        }
+      });
+    });
+  }
+
+  function show(id,push){
+    if(!NAMES[id]) id="hub";
+    var cur=document.querySelector(".view.on");
+    var tgt=document.getElementById(id);
+    if(!tgt) return;
+    if(cur===tgt){ return; }
+    if(cur) cur.classList.remove("on");
+    tgt.classList.add("on");
+    window.scrollTo(0,0);
+    var h=tgt.querySelector("h1.sr")||tgt;
+    h.setAttribute("tabindex","-1");
+    try{ h.focus({preventScroll:true}); }catch(e){}
+    if(push!==false){
+      var hash = (id==="hub") ? "#" : "#"+id;
+      history.pushState({v:id}, "", hash);
+    }
+    document.title = (id==="hub" ? "Hortifrut México · Análisis preparado por London Consulting Group"
+      : NAMES[id][1]+" · Hortifrut México · London Consulting Group");
+  }
+
+  document.addEventListener("click",function(e){
+    if(!(e.target instanceof Element)) return;
+    var b=e.target.closest("[data-go]");
+    if(b && !b.disabled){ e.preventDefault(); show(b.dataset.go,true); return; }
+  });
+
+  window.addEventListener("popstate",function(){
+    show((location.hash||"#").replace("#","")||"hub",false);
+  });
+
+  document.addEventListener("keydown",function(e){
+    if(e.key!=="Escape") return;
+    var cur=document.querySelector(".view.on");
+    if(cur && cur.id!=="hub") show("hub",true);
+  });
+
+  fill();
+  show((location.hash||"#").replace("#","")||"hub",false);
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var AGENTS=[
+    {n:"01",t:"Cumplimiento laboral de la red",c:"Compliance · Supply Chain",
+     sum:"Convierte el expediente laboral de cada productor y cada cuadrilla en un semáforo atado al calendario de embarque, antes de que el certificado sea un requisito de aduana y no un trámite.",
+     s:["Alta y seguimiento de productores asociados y empresas de corte que surten a Hortifrut México.",
+        "El estatus de cumplimiento vive en el sistema de cada productor y se consulta cuando alguien pregunta. Un vencimiento se descubre tarde, y con el CLA ese retraso detiene la caja en el pedimento.",
+        "Cruza el padrón de productores y cuadrillas contra altas y vigencias de seguridad social, y contra el programa de embarque de las siguientes seis semanas.",
+        "Semáforo por productor con fecha límite de renovación y volumen comprometido en riesgo, revisado cada semana.",
+        "Ningún embarque se detiene por un documento vencido, y la red sabe con anticipación qué tiene que resolver."],
+     pre:"Padrón de productores y empresas de corte con identificador único, y acuerdo con cada uno sobre qué evidencia de cumplimiento comparte y con qué periodicidad. Sin ese acuerdo no hay dato, y es una conversación comercial antes que técnica."},
+    {n:"02",t:"Costo de cosecha por variedad y productor",c:"Operaciones · Costos",
+     sum:"Pone números a la variable que la reforma de jornada va a mover cada 1 de enero hasta 2030, con el detalle suficiente para actuar sobre ella.",
+     s:["Cosecha manual de frambuesa, zarzamora y arándano en huertos de la red.",
+        "El costo de mano de obra se sigue como promedio de temporada. Esa resolución no permite ver por qué dos productores de la misma zona y variedad tienen costos distintos.",
+        "Normaliza jornales, kilos cosechados y variedad por lote, y construye el costo por kilo comparable entre productores.",
+        "Tablero de dispersión que ordena productores por costo por kilo y aísla el efecto de variedad, zona y práctica.",
+        "La discusión con el productor pasa de la percepción al dato, y el ahorro aparece donde la dispersión es mayor."],
+     pre:"Registro de jornales y de kilos por lote con criterio homogéneo en los productores comparados, de al menos dos temporadas. Si cada productor mide distinto, el primer trabajo es acordar la definición, no instalar el agente."},
+    {n:"03",t:"Retorno agronómico de la genética propia",c:"Genética · Desarrollo de productores",
+     sum:"Mide si los beneficios que Hortifrut promete al productor —caña sin espinas, intervalo de cosecha más corto— se están traduciendo en costo, para poder venderlos con evidencia.",
+     s:["Adopción de Centennial, RubyChic® y Fenomenal por parte de productores asociados.",
+        "El argumento varietal se sostiene en atributos agronómicos y en experiencia de campo. No hay un indicador estándar que los convierta en pesos por kilo del lado del productor.",
+        "Compara kilos por jornal, intervalo real de cosecha y merma entre lotes de variedad propia y lotes de referencia dentro de la misma zona.",
+        "Ficha de retorno por variedad, por zona, actualizada al cierre de cada temporada.",
+        "El equipo de desarrollo de productores llega a la negociación con el número, no solo con la descripción de la planta."],
+     pre:"Identificación de variedad a nivel de lote y una muestra de productores dispuestos a medir con la misma metodología durante una temporada completa. Es el caso más fácil de pilotear y el que más confianza construye con la red."},
+    {n:"04",t:"Condición en destino de vuelta al lote",c:"Calidad · Comercial",
+     sum:"Cierra el círculo entre la promesa de sabor y firmeza que sostiene la diferenciación del origen y el huerto concreto donde esa promesa se cumplió o se rompió.",
+     s:["Reclamos y evaluaciones de condición en los mercados de destino de Norteamérica, Europa y Asia.",
+        "La causa raíz se reconstruye a mano, con correos y llamadas, semanas después. Para entonces la temporada avanzó y la corrección ya no aplica al lote siguiente.",
+        "Liga automáticamente el reclamo con el lote, el productor, la fecha y hora de corte, la cuadrilla y la condición registrada en recepción.",
+        "Expediente de causa raíz en horas, con patrón acumulado por productor y por variedad a lo largo de la temporada.",
+        "La consistencia que promete el sello premium se vuelve auditable hacia atrás, que es la única forma de sostenerla."],
+     pre:"Trazabilidad de lote continua desde recepción hasta destino y una bitácora estructurada de condición en recepción. Si la trazabilidad se rompe en el empaque, ese es el primer trabajo y conviene saberlo antes de empezar."},
+    {n:"05",t:"Programa de volumen por zona y ventana",c:"Supply Chain · Planeación",
+     sum:"Construye la vista que hoy no existe en ningún reporte: cuánto del compromiso de una semana depende de un municipio, de una variedad o de un solo productor.",
+     s:["Compromiso semanal de volumen con las plataformas comerciales en destino.",
+        "La estimación se arma con el reporte de cada zona y el criterio del equipo de campo. La concentración de riesgo no se calcula, se intuye.",
+        "Proyecta el volumen disponible por productor y zona y lo contrasta contra el programa comprometido, marcando dependencias críticas.",
+        "Alerta temprana de concentración con escenarios de sustitución entre zonas y variedades.",
+        "El compromiso con el cliente se asume sabiendo qué tan expuesto está, y la respuesta ante una caída de zona deja de ser improvisada."],
+     pre:"Histórico de entregas por productor y ubicación, cruzado con el programa comprometido. Dos temporadas permiten distinguir estacionalidad de ruido; con una sola, el agente describe pero no anticipa."},
+    {n:"06",t:"Expediente integral del productor",c:"Desarrollo de productores · Dirección",
+     sum:"Reúne en una sola ficha lo que hoy vive en cinco áreas distintas, para que la decisión de a quién acompañar, a quién apoyar y con quién crecer se tome con el mismo criterio cada vez.",
+     s:["Decisión anual de alta, permanencia y crecimiento de productores dentro de la red.",
+        "Rendimiento, calidad, costo, cumplimiento laboral y situación hídrica viven en áreas separadas. Nadie los ve juntos, así que la decisión descansa en la relación de campo.",
+        "Consolida los cinco componentes en una ficha por productor, comparable entre productores y entre temporadas.",
+        "Scorecard de red con ranking, tendencia por productor y señal temprana de deterioro en cualquiera de los cinco ejes.",
+        "La relación de campo sigue siendo el activo, pero deja de ser el único insumo de una decisión que compromete programa y genética a varios años."],
+     pre:"Los cinco componentes anteriores en una misma base, con identificador único de productor. Este agente es el último en la fila a propósito: se alimenta de los otros cinco y no funciona sin ellos."}
+  ];
+  var KEYS=["Proceso","Fricción","Agente","Acción","Resultado"];
+  var CLS=["","","is-agent","","is-result"];
+  var list=document.getElementById("agentList");
+  var det=document.getElementById("agentDetail");
+  if(!list||!det) return;
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  AGENTS.forEach(function(a,i){
+    var b=document.createElement("button");
+    b.className="agent-btn"; b.type="button"; b.setAttribute("role","tab");
+    b.setAttribute("aria-selected", i===0?"true":"false");
+    b.tabIndex = i===0?0:-1;
+    b.dataset.i=i;
+    b.innerHTML='<span class="n">'+a.n+'</span><span><span class="t">'+esc(a.t)+'</span><span class="c">'+esc(a.c)+'</span></span>';
+    list.appendChild(b);
+  });
+
+  function render(i){
+    var a=AGENTS[i];
+    var steps=a.s.map(function(v,k){
+      return '<div class="step '+CLS[k]+'"><div class="k"><i>'+(k+1)+'</i><span>'+KEYS[k]+'</span></div><div class="v">'+esc(v)+'</div></div>';
+    }).join("");
+    det.innerHTML='<h3>'+esc(a.t)+'</h3><p class="sum">'+esc(a.sum)+'</p>'+
+      '<div class="flow anim">'+steps+'</div>'+
+      '<div class="pre"><span class="lb">Condición previa de datos</span><p>'+esc(a.pre)+'</p></div>';
+    list.querySelectorAll(".agent-btn").forEach(function(b,k){
+      b.setAttribute("aria-selected", k===i?"true":"false");
+      b.tabIndex = k===i?0:-1;
+    });
+  }
+
+  list.addEventListener("click",function(e){
+    var b=e.target.closest(".agent-btn"); if(!b) return;
+    render(parseInt(b.dataset.i,10));
+  });
+  list.addEventListener("keydown",function(e){
+    var ks=["ArrowDown","ArrowRight","ArrowUp","ArrowLeft","Home","End"];
+    if(ks.indexOf(e.key)<0) return;
+    e.preventDefault();
+    var btns=Array.prototype.slice.call(list.querySelectorAll(".agent-btn"));
+    var cur=btns.findIndex(function(b){return b.getAttribute("aria-selected")==="true";});
+    var nxt=cur;
+    if(e.key==="ArrowDown"||e.key==="ArrowRight") nxt=(cur+1)%btns.length;
+    if(e.key==="ArrowUp"||e.key==="ArrowLeft") nxt=(cur-1+btns.length)%btns.length;
+    if(e.key==="Home") nxt=0;
+    if(e.key==="End") nxt=btns.length-1;
+    render(nxt); btns[nxt].focus();
+  });
+
+  render(0);
+})();
+</script>
+</body>
+</html>
